@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Bandage_Item" load_steps=3 format=3 uid="uid://bhp2ffpidn13f"]
+
+[ext_resource type="Script" path="res://scripts/Inventory/bandage_item.gd" id="1_o6h02"]
+[ext_resource type="Texture2D" uid="uid://b83lnvfdvxo4c" path="res://assets/Items/bandage/bandage.png" id="2_501c3"]
+
+[resource]
+script = ExtResource("1_o6h02")
+name = "Bandage"
+info = "Remove Bleeding status"
+rarity = "Common"
+texture = ExtResource("2_501c3")
+maxAmountPrStack = 5

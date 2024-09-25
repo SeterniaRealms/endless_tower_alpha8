@@ -1,0 +1,155 @@
+[gd_scene load_steps=14 format=3 uid="uid://b1us4gcml3xuf"]
+
+[ext_resource type="Script" path="res://scripts/game_menu.gd" id="1_ljakk"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="2_06ngc"]
+[ext_resource type="PackedScene" uid="uid://i04ahyyq4hil" path="res://scenes/main.tscn" id="2_klqfx"]
+[ext_resource type="Texture2D" uid="uid://cto7kbgcmsiq0" path="res://UI/Background/ENDLESS TOWER - BG.png" id="2_s6hc0"]
+[ext_resource type="PackedScene" uid="uid://be2rmdwqrqiw0" path="res://addons/SolanaSDK/Scripts/WalletAdapter/WalletAdapterUI.tscn" id="4_f2c0r"]
+[ext_resource type="FontFile" uid="uid://dnk1i8nwchfk5" path="res://UI/Fonts/SPECTRAL-REGULAR.TTF" id="5_bj53h"]
+[ext_resource type="Texture2D" uid="uid://bv8ba4q2sqe8k" path="res://UI/Background/decoration_bg.png" id="5_l5gno"]
+[ext_resource type="Texture2D" uid="uid://bscuaq4wphq7f" path="res://UI/Button/Button_1.png" id="6_nnuwx"]
+[ext_resource type="PackedScene" uid="uid://bovasqadpaxv3" path="res://scenes/sound_button.tscn" id="7_c0j2e"]
+[ext_resource type="Texture2D" uid="uid://omketxysbpg" path="res://UI/Button/Button_1_hover.png" id="7_onm3i"]
+[ext_resource type="Texture2D" uid="uid://b2wloxfjpu3co" path="res://UI/Logo/Logo_game.png" id="10_umwnp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvcou"]
+texture = ExtResource("7_onm3i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0eal7"]
+texture = ExtResource("6_nnuwx")
+
+[node name="menu_wallet" type="CanvasLayer"]
+
+[node name="menu" type="Control" parent="." node_paths=PackedStringArray("wallet_adapter")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ljakk")
+main_scn = ExtResource("2_klqfx")
+wallet_adapter = NodePath("WalletAdapterUI")
+
+[node name="Panel2" type="Panel" parent="menu"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="menu/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 499.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s6hc0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="menu/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51875
+anchor_top = 0.519444
+anchor_right = 3.3625
+anchor_bottom = 3.28333
+offset_left = -323.0
+offset_top = -180.0
+offset_right = -283.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.333213, 0.333213)
+texture = ExtResource("5_l5gno")
+
+[node name="TextureRect2" type="TextureRect" parent="menu/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.222
+anchor_right = 0.5
+anchor_bottom = 0.222
+offset_left = -115.0
+offset_top = -47.92
+offset_right = 655.0
+offset_bottom = 432.08
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.296007, 0.296007)
+texture = ExtResource("10_umwnp")
+
+[node name="Version" type="Label" parent="menu/Panel2"]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = 5.0
+offset_right = 197.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.408196, 0.408196)
+theme_override_colors/font_color = Color(1, 0.901961, 0.388235, 1)
+theme_override_fonts/font = ExtResource("5_bj53h")
+theme_override_font_sizes/font_size = 30
+text = "Alpha Version"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.585
+anchor_right = 0.5
+anchor_bottom = 0.585
+offset_left = -65.0
+offset_top = 16.4
+offset_right = 65.0
+offset_bottom = 53.4
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="connect_button" type="Button" parent="menu/Panel2/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_06ngc")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_xvcou")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0eal7")
+action_mode = 0
+text = "Connect Wallet"
+
+[node name="sound_button" parent="menu/Panel2" instance=ExtResource("7_c0j2e")]
+offset_left = 596.0
+offset_top = 316.0
+offset_right = 611.0
+offset_bottom = 330.0
+
+[node name="WalletAdapterUI" parent="menu" instance=ExtResource("4_f2c0r")]
+visible = false
+layout_mode = 1
+offset_left = -64.0
+offset_top = 36.0
+offset_right = 379.0
+offset_bottom = 420.0
+scale = Vector2(0.295562, 0.295562)
+
+[connection signal="pressed" from="menu/Panel2/VBoxContainer/connect_button" to="menu" method="_on_connect_button_pressed"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://twayfaqv1vxw"]
+
+[ext_resource type="Script" path="res://scripts/board_manager.gd" id="1_opc2r"]
+[ext_resource type="PackedScene" uid="uid://ci5nsadpeny32" path="res://prefabs/floor_tile.tscn" id="2_r6m1i"]
+
+[node name="game_manager" type="Node2D"]
+
+[node name="board_manager" type="Node2D" parent="."]
+position = Vector2(48, 49)
+script = ExtResource("1_opc2r")
+floor_tile = ExtResource("2_r6m1i")

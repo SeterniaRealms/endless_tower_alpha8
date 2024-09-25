@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7dygtg10kpg8"]
+
+[ext_resource type="Script" path="res://scripts/slot.gd" id="1_lx643"]
+[ext_resource type="Texture2D" uid="uid://bm0buxpw56np0" path="res://UI/UI_inventory/inventory_slots2.png" id="2_bb17c"]
+[ext_resource type="Script" path="res://scripts/Inventory/inventory_item.gd" id="2_pv80j"]
+
+[sub_resource type="Resource" id="Resource_qty2h"]
+script = ExtResource("2_pv80j")
+name = ""
+info = ""
+rarity = ""
+maxAmountPrStack = 0
+
+[node name="slot" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 22.0
+offset_bottom = 22.0
+script = ExtResource("1_lx643")
+inventory_item = SubResource("Resource_qty2h")
+
+[node name="background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_bb17c")
+centered = false
+vframes = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 22.0
+scale = Vector2(1, 0.992635)
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 21.0
+offset_bottom = 21.0
+mouse_filter = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

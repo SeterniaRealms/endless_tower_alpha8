@@ -1,0 +1,395 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3tb6s5cgnnh3"]
+
+[ext_resource type="Script" path="res://addons/SolanaSDK/Scripts/ThirdPartyTools/Endless Tower SOAR/endlesstower_program.gd" id="1_q2vad"]
+[ext_resource type="JSON" path="res://addons/SolanaSDK/Scripts/ThirdPartyTools/Endless Tower SOAR/simple_mint (1).json" id="2_nrqfv"]
+
+[node name="EndlessTowerProgram" type="Node"]
+script = ExtResource("1_q2vad")
+
+[node name="ENDLESS_PROGRAM" type="AnchorProgram" parent="."]
+pid = "GkUZfjXK2DuQLx5oSn6q3gsqHoWCGGru5eQbZgQyogLe"
+json_file = ExtResource("2_nrqfv")
+idl = {
+"accounts": [{
+"name": "Treasure",
+"type": {
+"fields": [{
+"name": "admin",
+"type": "publicKey"
+}, {
+"name": "name",
+"type": "string"
+}, {
+"name": "uri",
+"type": "string"
+}, {
+"name": "symbol",
+"type": "string"
+}, {
+"name": "supply",
+"type": "u64"
+}, {
+"name": "mints",
+"type": "u64"
+}, {
+"name": "time",
+"type": "u64"
+}, {
+"name": "solFee",
+"type": "u64"
+}, {
+"name": "heroCollection",
+"type": "publicKey"
+}, {
+"name": "mainCollection",
+"type": "publicKey"
+}, {
+"name": "playByCollection",
+"type": "u64"
+}],
+"kind": "struct"
+}
+}, {
+"name": "Position",
+"type": {
+"fields": [{
+"name": "admin",
+"type": "publicKey"
+}, {
+"name": "name",
+"type": "string"
+}, {
+"name": "play",
+"type": "u64"
+}, {
+"name": "startTimestamp",
+"type": "u64"
+}, {
+"name": "stopTimestamp",
+"type": "u64"
+}, {
+"name": "times",
+"type": "u64"
+}, {
+"name": "record",
+"type": "u64"
+}],
+"kind": "struct"
+}
+}],
+"errors": [{
+"code": 6000.0,
+"msg": "No Random gen",
+"name": "NoRandom"
+}, {
+"code": 6001.0,
+"msg": "No Faction match",
+"name": "NoFaction"
+}, {
+"code": 6002.0,
+"msg": "No Metadata match",
+"name": "NoMetadata"
+}, {
+"code": 6003.0,
+"msg": "You are not authorized to perform this action.",
+"name": "Unauthorized"
+}, {
+"code": 6004.0,
+"msg": "You are not authorized to perform this action.",
+"name": "NotAllowedAuthority"
+}, {
+"code": 6005.0,
+"msg": "Mint Amount Exceeded Supply",
+"name": "IncorrectSupply"
+}, {
+"code": 6006.0,
+"msg": "Address already exist.",
+"name": "AddressExist"
+}, {
+"code": 6007.0,
+"msg": "Order Finish.",
+"name": "OrderFinish"
+}, {
+"code": 6008.0,
+"msg": "Order Completely Filled.",
+"name": "OrderFilled"
+}, {
+"code": 6009.0,
+"msg": "Incorrect Time to Execute.",
+"name": "IncorrectTime"
+}, {
+"code": 6010.0,
+"msg": "Incorrect NFT Definition.",
+"name": "IncorrectNFT"
+}, {
+"code": 6011.0,
+"msg": "Incorrect Order Definition.",
+"name": "IncorrectDefinition"
+}, {
+"code": 6012.0,
+"msg": "ZeroAddressDetected",
+"name": "ZeroAddressDetected"
+}, {
+"code": 6013.0,
+"msg": "Incorrect associated account",
+"name": "IncorrectAssociated"
+}, {
+"code": 6014.0,
+"msg": "Math Operation Overflow",
+"name": "MathOverflow"
+}, {
+"code": 6015.0,
+"msg": "account with empty data",
+"name": "EmptyData"
+}],
+"instructions": [{
+"accounts": [{
+"isMut": true,
+"isSigner": true,
+"name": "admin"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "treasure"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "systemProgram"
+}],
+"args": [{
+"name": "supply",
+"type": "u64"
+}, {
+"name": "name",
+"type": "string"
+}, {
+"name": "uri",
+"type": "string"
+}, {
+"name": "symbol",
+"type": "string"
+}, {
+"name": "time",
+"type": "u64"
+}, {
+"name": "solFee",
+"type": "u64"
+}, {
+"name": "playByCollection",
+"type": "u64"
+}],
+"name": "initialize"
+}, {
+"accounts": [{
+"isMut": true,
+"isSigner": true,
+"name": "admin"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "treasure"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "mint"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "tokenAccount"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "masterEditionAccount"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "nftMetadata"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "delegate"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "associatedTokenProgram"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "rent"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "systemProgram"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "tokenProgram"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "metadataProgram"
+}],
+"args": [{
+"name": "bump",
+"type": "u8"
+}],
+"name": "mintCollection"
+}, {
+"accounts": [{
+"isMut": true,
+"isSigner": true,
+"name": "payer"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "admin"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "treasure"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "mint"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "collectionMint"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "tokenAccount"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "masterEditionAccount"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "collectionMasterEdition"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "nftMetadata"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "collectionMetadata"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "delegate"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "associatedTokenProgram"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "rent"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "systemProgram"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "tokenProgram"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "metadataProgram"
+}],
+"args": [{
+"name": "id",
+"type": "u64"
+}, {
+"name": "bump",
+"type": "u8"
+}],
+"name": "mint"
+}, {
+"accounts": [{
+"isMut": true,
+"isSigner": true,
+"name": "payer"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "treasure"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "position"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "mint"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "associated"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "metadata"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "associatedTokenProgram"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "rent"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "systemProgram"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "tokenProgram"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "metadataProgram"
+}],
+"args": [],
+"name": "ticket"
+}, {
+"accounts": [{
+"isMut": true,
+"isSigner": true,
+"name": "payer"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "treasure"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "wallet"
+}, {
+"isMut": true,
+"isSigner": false,
+"name": "position"
+}, {
+"isMut": false,
+"isSigner": false,
+"name": "systemProgram"
+}],
+"args": [{
+"name": "floor",
+"type": "u64"
+}, {
+"name": "name",
+"type": "string"
+}],
+"name": "rank"
+}],
+"metadata": {
+"address": "GkUZfjXK2DuQLx5oSn6q3gsqHoWCGGru5eQbZgQyogLe"
+},
+"name": "simple_mint",
+"version": "0.1.0"
+}

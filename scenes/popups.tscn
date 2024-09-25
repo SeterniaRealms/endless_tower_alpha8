@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwrl5stng6yh6"]
+
+[ext_resource type="Script" path="res://scripts/popups.gd" id="1_vnknp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opnde"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.120774, 0.120775, 0.135762, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+border_blend = true
+
+[node name="Popups" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vnknp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemPopup" type="PopupPanel" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+position = Vector2i(250, 150)
+size = Vector2i(120, 131)
+theme_override_styles/panel = SubResource("StyleBoxFlat_opnde")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ItemPopup"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = 121.0
+
+[node name="Name" type="Label" parent="CanvasLayer/Control/ItemPopup/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Name:"
+
+[node name="Info" type="Label" parent="CanvasLayer/Control/ItemPopup/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Info:"
+
+[node name="Rarity" type="Label" parent="CanvasLayer/Control/ItemPopup/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Common"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/ItemPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="AttributeType" type="Label" parent="CanvasLayer/Control/ItemPopup/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Strenght"
+
+[node name="AttributeValue" type="Label" parent="CanvasLayer/Control/ItemPopup/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "20"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/ItemPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Restore_HP" type="Label" parent="CanvasLayer/Control/ItemPopup/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "RestoreHP"
+
+[node name="HPValue" type="Label" parent="CanvasLayer/Control/ItemPopup/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "20"

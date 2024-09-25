@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu6lady5vekb0"]
+
+[ext_resource type="Texture2D" uid="uid://bm0buxpw56np0" path="res://UI/UI_inventory/inventory_slots2.png" id="1_wb84m"]
+[ext_resource type="Texture2D" uid="uid://ks0pewl4wpl" path="res://UI/UI_inventory/equip_slots/ring_slot.png" id="2_s2q4t"]
+
+[node name="slot_ring" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("1_wb84m")
+centered = false
+vframes = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 87.0
+offset_bottom = 79.0
+scale = Vector2(0.182601, 0.182601)
+texture = ExtResource("2_s2q4t")
+expand_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_filter = 1

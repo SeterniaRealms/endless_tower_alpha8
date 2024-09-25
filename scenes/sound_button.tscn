@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bovasqadpaxv3"]
+
+[ext_resource type="Texture2D" uid="uid://cqqcr2vqp3qhx" path="res://UI/Icons/sound_icon.png" id="1_dn86f"]
+[ext_resource type="Texture2D" uid="uid://d2d4hjb67men3" path="res://UI/Icons/icon_sound_mute.png" id="2_5qeup"]
+[ext_resource type="Script" path="res://scripts/toggle_sound.gd" id="2_uafrv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjuu8"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+
+[node name="sound_button" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 15.0
+offset_bottom = 14.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 14.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mjuu8")
+
+[node name="toggle_sound" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.117
+anchor_bottom = 1.053
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 629.245
+offset_bottom = 632.258
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.015, 0.015)
+toggle_mode = true
+texture_normal = ExtResource("1_dn86f")
+texture_pressed = ExtResource("2_5qeup")
+stretch_mode = 0
+script = ExtResource("2_uafrv")
+
+[connection signal="pressed" from="toggle_sound" to="toggle_sound" method="_on_pressed"]

@@ -1,0 +1,199 @@
+[gd_scene load_steps=28 format=3 uid="uid://dpwul5c00uxsu"]
+
+[ext_resource type="Script" path="res://scripts/torch.gd" id="1_8c1jp"]
+[ext_resource type="Texture2D" uid="uid://bye8x1pdj2oy2" path="res://assets/Tilemap/Old Prison Tilemap/torch/candle - wall sconces - 2.png" id="1_upv0b"]
+[ext_resource type="Texture2D" uid="uid://f4q6yq0i6dqn" path="res://assets/Tilemap/Old Prison Tilemap/torch/magic flame-flickering light-Use olverlay color mode to achieve the same FX you see in the mockup.png" id="2_l16ig"]
+[ext_resource type="Texture2D" uid="uid://dr4ni2xqeh2qi" path="res://assets/Tilemap/Old Prison Tilemap/torch/magic flame-particles-must be above the light fx.png" id="3_4hv3l"]
+[ext_resource type="Texture2D" uid="uid://c2v86ue5mjl4" path="res://assets/Tilemap/Old Prison Tilemap/torch/magic flame.png" id="4_svhh1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yy40q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t04m"]
+atlas = ExtResource("2_l16ig")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb4ai"]
+atlas = ExtResource("2_l16ig")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22uk1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t04m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb4ai")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_semnm"]
+atlas = ExtResource("3_4hv3l")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hk5h"]
+atlas = ExtResource("3_4hv3l")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibtpy"]
+atlas = ExtResource("3_4hv3l")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnu77"]
+atlas = ExtResource("3_4hv3l")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf70h"]
+atlas = ExtResource("3_4hv3l")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrs84"]
+atlas = ExtResource("3_4hv3l")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68krc"]
+atlas = ExtResource("3_4hv3l")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kasq"]
+atlas = ExtResource("3_4hv3l")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43hbs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_semnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hk5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibtpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnu77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf70h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrs84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68krc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kasq")
+}],
+"loop": true,
+"name": &"flame_particle",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_412i5"]
+atlas = ExtResource("4_svhh1")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we6mt"]
+atlas = ExtResource("4_svhh1")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i57xb"]
+atlas = ExtResource("4_svhh1")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvqr5"]
+atlas = ExtResource("4_svhh1")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itsb4"]
+atlas = ExtResource("4_svhh1")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr045"]
+atlas = ExtResource("4_svhh1")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwtq7"]
+atlas = ExtResource("4_svhh1")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbodv"]
+atlas = ExtResource("4_svhh1")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6c30"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_412i5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we6mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i57xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvqr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itsb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr045")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwtq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbodv")
+}],
+"loop": true,
+"name": &"magic flame",
+"speed": 10.0
+}]
+
+[node name="torch" type="Node2D"]
+script = ExtResource("1_8c1jp")
+
+[node name="torch" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+texture = ExtResource("1_upv0b")
+
+[node name="flame_flickering" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.705882)
+self_modulate = Color(1, 1, 1, 0.784314)
+z_index = 2
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_yy40q")
+position = Vector2(0, -4)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_22uk1")
+autoplay = "default"
+frame_progress = 0.999685
+
+[node name="flame_particle" type="AnimatedSprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(-1, -4)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_43hbs")
+animation = &"flame_particle"
+autoplay = "flame_particle"
+frame_progress = 0.6877
+
+[node name="magic flame" type="AnimatedSprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(-1, -18)
+scale = Vector2(1, 0.955)
+sprite_frames = SubResource("SpriteFrames_h6c30")
+animation = &"magic flame"
+autoplay = "magic flame"
+frame_progress = 0.453892

@@ -1,0 +1,1111 @@
+[gd_scene load_steps=72 format=3 uid="uid://twayfaqv1vxw"]
+
+[ext_resource type="Script" path="res://scripts/manager/board_manager.gd" id="1_opc2r"]
+[ext_resource type="Script" path="res://scripts/manager/game_manager.gd" id="1_xo5q2"]
+[ext_resource type="PackedScene" uid="uid://ci5nsadpeny32" path="res://prefabs/tiles/floor_tile.tscn" id="2_r6m1i"]
+[ext_resource type="PackedScene" uid="uid://b3gs3h3mioe4c" path="res://prefabs/tiles/outer_wall_tile.tscn" id="3_ykfe2"]
+[ext_resource type="PackedScene" uid="uid://cquje3a3uk87r" path="res://prefabs/tiles/box_tile.tscn" id="4_pigwd"]
+[ext_resource type="PackedScene" uid="uid://bbh008ndwjjyb" path="res://prefabs/tiles/life_tile.tscn" id="5_kk7c4"]
+[ext_resource type="PackedScene" uid="uid://bm35gkisl1mva" path="res://prefabs/tiles/spike_tile.tscn" id="6_iksfj"]
+[ext_resource type="PackedScene" uid="uid://cit4a6wswgbkq" path="res://prefabs/tiles/exit_tile.tscn" id="6_lwoax"]
+[ext_resource type="PackedScene" uid="uid://b8lopnxjb6n03" path="res://prefabs/player.tscn" id="7_c2arf"]
+[ext_resource type="PackedScene" uid="uid://cgr1ebmkjf3tx" path="res://prefabs/tiles/enemy_tile.tscn" id="7_eicph"]
+[ext_resource type="PackedScene" uid="uid://br012athen28l" path="res://prefabs/tiles/meat_tile.tscn" id="8_808pm"]
+[ext_resource type="Script" path="res://scripts/manager/hud_manager.gd" id="10_ls7gq"]
+[ext_resource type="PackedScene" uid="uid://becr5jf0ptc4c" path="res://prefabs/tiles/chest_tile.tscn" id="11_htn07"]
+[ext_resource type="PackedScene" uid="uid://clscw3fgks3sl" path="res://prefabs/tiles/portal_boss_tile.tscn" id="12_61ghs"]
+[ext_resource type="AudioStream" uid="uid://tkl5sgg5ye6n" path="res://sfx/attack_player/695380__fmaudio__male-attack-grunt-3.wav" id="12_d1nmg"]
+[ext_resource type="AudioStream" uid="uid://cg15cil3h23i1" path="res://sfx/attack_player/695379__fmaudio__male-attack-grunt-2.wav" id="13_1ans3"]
+[ext_resource type="AudioStream" uid="uid://dbh846d8h5hf6" path="res://sfx/attack_player/695378__fmaudio__male-attack-grunt-1.wav" id="14_iqlvn"]
+[ext_resource type="AudioStream" uid="uid://byax116t1ygna" path="res://sfx/die_player/695384__fmaudio__male-death-cry-1.wav" id="19_ba61k"]
+[ext_resource type="AudioStream" uid="uid://bka1gm258hbm" path="res://sfx/die_player/695385__fmaudio__male-death-cry-2.wav" id="20_cqbh7"]
+[ext_resource type="AudioStream" uid="uid://dj7fppos8yhp2" path="res://sfx/die_player/695386__fmaudio__male-death-cry-3.wav" id="21_k2swb"]
+[ext_resource type="AudioStream" uid="uid://bjvccjb4l1va7" path="res://sfx/die_player/695389__fmaudio__male-death-cry-6.wav" id="22_ha3oc"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="24_6dmjf"]
+[ext_resource type="Texture2D" uid="uid://ckgw48k301jl2" path="res://UI/Icons/heart.png" id="24_dnxni"]
+[ext_resource type="Resource" uid="uid://6klkf4w857qf" path="res://scripts/Inventory/player_inventory.tres" id="24_fydrh"]
+[ext_resource type="Resource" uid="uid://b1tndiw6f6jxv" path="res://assets/seternia_nft.tres" id="26_0yqxh"]
+[ext_resource type="Texture2D" uid="uid://bhqfrk0x2t2ur" path="res://assets/Tilemap/Map01.png" id="28_2ikoy"]
+[ext_resource type="Texture2D" uid="uid://t3csfq7d7beh" path="res://UI/Icons/floor.png" id="28_xw5aw"]
+[ext_resource type="Texture2D" uid="uid://ckfvhrei8shlb" path="res://assets/Tilemap/Solana_logo.png" id="29_4oowr"]
+[ext_resource type="Script" path="res://scenes/health_bar.gd" id="29_e38i1"]
+[ext_resource type="Texture2D" uid="uid://b4vl7fwyfmvx8" path="res://assets/Tilemap/Seternia_logo.png" id="30_ev2aj"]
+[ext_resource type="PackedScene" uid="uid://bovasqadpaxv3" path="res://scenes/sound_button.tscn" id="32_5xr6d"]
+[ext_resource type="PackedScene" uid="uid://bh876p6a6uf4f" path="res://scenes/pause_menu.tscn" id="32_bu5hn"]
+[ext_resource type="Texture2D" uid="uid://d0oqhfmf65j15" path="res://UI/Icons/Envolop 1.png" id="34_4opm7"]
+[ext_resource type="PackedScene" uid="uid://cyh1v36ha72j5" path="res://UI/fog_effect.tscn" id="34_u6dp3"]
+[ext_resource type="PackedScene" uid="uid://cg7nylkqci1jv" path="res://prefabs/inventory.tscn" id="34_yta0x"]
+[ext_resource type="PackedScene" uid="uid://3aqgjsno2ywi" path="res://scenes/Status/bleeding_status.tscn" id="35_mdijk"]
+[ext_resource type="PackedScene" uid="uid://bomgey52u47ya" path="res://scenes/menu_button.tscn" id="36_jkvil"]
+[ext_resource type="PackedScene" uid="uid://uhkekkxytdfv" path="res://scenes/transition_screen.tscn" id="36_pvmgw"]
+[ext_resource type="PackedScene" uid="uid://b0tdf1hyb54ha" path="res://scenes/hotbar.tscn" id="39_6mlq5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdemv"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jntcd"]
+bg_color = Color(0.858824, 0.0392157, 0.0745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vg157"]
+bg_color = Color(0.211426, 0.0868275, 3.60981e-08, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.82537, 0.466678, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vx73h"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq6hj"]
+atlas = ExtResource("28_2ikoy")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwdhw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq6hj")
+}],
+"loop": true,
+"name": &"border",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opgh2"]
+size = Vector2(30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdit8"]
+atlas = ExtResource("28_2ikoy")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3bpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdit8")
+}],
+"loop": true,
+"name": &"wall",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4y8wx"]
+size = Vector2(30, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pgaj"]
+atlas = ExtResource("28_2ikoy")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dw333"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pgaj")
+}],
+"loop": true,
+"name": &"wall_2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtlw7"]
+size = Vector2(30, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4cff"]
+atlas = ExtResource("28_2ikoy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsg6w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4cff")
+}],
+"loop": true,
+"name": &"wall_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjhbb"]
+size = Vector2(31, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87lbp"]
+atlas = ExtResource("28_2ikoy")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8qgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87lbp")
+}],
+"loop": true,
+"name": &"wall_down",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa16f"]
+size = Vector2(31, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1wbk"]
+atlas = ExtResource("28_2ikoy")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrkj3"]
+atlas = ExtResource("28_2ikoy")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yo5o2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1wbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrkj3")
+}],
+"loop": true,
+"name": &"torch",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2dq1"]
+atlas = ExtResource("28_2ikoy")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pvmyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2dq1")
+}],
+"loop": true,
+"name": &"torch",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utum5"]
+atlas = ExtResource("28_2ikoy")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3aq2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utum5")
+}],
+"loop": true,
+"name": &"torch",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23bgy"]
+atlas = ExtResource("29_4oowr")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6yfg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23bgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kggw"]
+atlas = ExtResource("30_ev2aj")
+region = Rect2(0, 0, 12, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0r4k7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kggw")
+}],
+"loop": true,
+"name": &"seternia_logo",
+"speed": 5.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tu8mr"]
+texture = ExtResource("28_2ikoy")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+7:5/0/terrain_set = 0
+7:5/0/terrain = 0
+7:5/0/terrains_peering_bit/right_side = 0
+7:5/0/terrains_peering_bit/bottom_right_corner = 0
+7:5/0/terrains_peering_bit/bottom_side = 0
+7:5/0/terrains_peering_bit/bottom_left_corner = 0
+7:5/0/terrains_peering_bit/left_side = 0
+7:5/0/terrains_peering_bit/top_left_corner = 0
+7:5/0/terrains_peering_bit/top_side = 0
+7:5/0/terrains_peering_bit/top_right_corner = 0
+8:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+9:6/0 = 0
+0:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+7:7/0 = 0
+9:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+7:8/0 = 0
+9:8/0 = 0
+0:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_r4i54"]
+tile_size = Vector2i(32, 32)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "BG"
+terrain_set_0/terrain_0/color = Color(0, 0, 0, 1)
+sources/0 = SubResource("TileSetAtlasSource_tu8mr")
+
+[node name="game_manager" type="Node2D"]
+position = Vector2(160, 5)
+script = ExtResource("1_xo5q2")
+metadata/_edit_horizontal_guides_ = [20.0, 27.0, 5.0, 17.0, 11.0, 349.0]
+
+[node name="board_manager" type="Node2D" parent="."]
+position = Vector2(48, 49)
+script = ExtResource("1_opc2r")
+floor_tile = ExtResource("2_r6m1i")
+outer_wall_tile = ExtResource("3_ykfe2")
+box_tile = ExtResource("4_pigwd")
+spike_tile = ExtResource("6_iksfj")
+life_tile = ExtResource("5_kk7c4")
+meat_tile = ExtResource("8_808pm")
+exit_tile = ExtResource("6_lwoax")
+enemy_tile = ExtResource("7_eicph")
+chest_tile = ExtResource("11_htn07")
+portal_boss_tile = ExtResource("12_61ghs")
+
+[node name="player" parent="." instance=ExtResource("7_c2arf")]
+z_index = 2
+position = Vector2(48, 260)
+sfx_attack = Array[AudioStream]([ExtResource("12_d1nmg"), ExtResource("13_1ans3"), ExtResource("14_iqlvn")])
+sfx_die = Array[AudioStream]([ExtResource("19_ba61k"), ExtResource("20_cqbh7"), ExtResource("21_k2swb"), ExtResource("22_ha3oc")])
+inventory = ExtResource("24_fydrh")
+
+[node name="canvas_layer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="hud_manager" type="Control" parent="canvas_layer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_ls7gq")
+holder_collection = ExtResource("26_0yqxh")
+
+[node name="txt_health" type="Label" parent="canvas_layer/hud_manager"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -38.0
+offset_right = 13.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.392157)
+theme_override_fonts/font = ExtResource("24_6dmjf")
+theme_override_font_sizes/font_size = 10
+text = "100"
+vertical_alignment = 1
+
+[node name="health_bar_ui" type="Panel" parent="canvas_layer/hud_manager"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -39.0
+offset_right = 51.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.945804, 0.700727)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="health_bar" type="ProgressBar" parent="canvas_layer/hud_manager/health_bar_ui" node_paths=PackedStringArray("player")]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 107.0
+offset_bottom = 42.0
+scale = Vector2(0.863648, 0.342951)
+theme_override_styles/fill = SubResource("StyleBoxFlat_jntcd")
+value = 5.0
+show_percentage = false
+script = ExtResource("29_e38i1")
+player = NodePath("../../../../player")
+
+[node name="TextureRect" type="TextureRect" parent="canvas_layer/hud_manager/health_bar_ui"]
+visible = false
+layout_mode = 0
+offset_left = 3.1719
+offset_top = 2.85418
+offset_right = 18.1719
+offset_bottom = 22.8542
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("24_dnxni")
+expand_mode = 1
+
+[node name="floor" type="Panel" parent="canvas_layer/hud_manager"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -299.0
+offset_top = -339.0
+offset_right = -219.0
+offset_bottom = -317.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="txt_floor" type="Label" parent="canvas_layer/hud_manager/floor"]
+layout_mode = 0
+offset_left = 23.75
+offset_top = 2.5
+offset_right = 70.75
+offset_bottom = 23.5
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("24_6dmjf")
+theme_override_font_sizes/font_size = 13
+text = "Floor: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Avatar" type="TextureRect" parent="canvas_layer/hud_manager/floor"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -6.0
+offset_right = 21.0
+offset_bottom = 8.0
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("28_xw5aw")
+expand_mode = 1
+
+[node name="player_info_box" type="Panel" parent="canvas_layer/hud_manager"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 150.0
+offset_bottom = 63.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vg157")
+
+[node name="avatar_frame" type="Panel" parent="canvas_layer/hud_manager/player_info_box"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 48.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vx73h")
+
+[node name="Avatar" type="TextureRect" parent="canvas_layer/hud_manager/player_info_box/avatar_frame"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 38.0
+offset_bottom = 38.0
+expand_mode = 1
+
+[node name="Label" type="Label" parent="canvas_layer/hud_manager/player_info_box"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 56.0
+offset_top = 9.0
+offset_right = 107.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 12
+text = "Kaleve"
+
+[node name="verified_ui" type="Panel" parent="canvas_layer/hud_manager"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -100.0
+offset_right = -254.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="verified" type="Label" parent="canvas_layer/hud_manager/verified_ui"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -12.0
+offset_top = -2.0
+offset_right = 26.0
+offset_bottom = 18.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("24_6dmjf")
+theme_override_font_sizes/font_size = 8
+text = "Pass"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="canvas_layer/hud_manager/verified_ui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_top = 0.5
+anchor_right = 0.063
+anchor_bottom = 0.5
+offset_left = 3.228
+offset_top = -5.5
+offset_right = 13.228
+offset_bottom = 4.5
+grow_vertical = 2
+texture = ExtResource("34_4opm7")
+expand_mode = 1
+
+[node name="gold" type="Panel" parent="canvas_layer/hud_manager"]
+visible = false
+layout_mode = 0
+offset_left = 21.0
+offset_top = 42.0
+offset_right = 85.0
+offset_bottom = 59.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="txt_gold" type="Label" parent="canvas_layer/hud_manager/gold"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_right = 51.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("24_6dmjf")
+theme_override_font_sizes/font_size = 12
+text = "9999"
+
+[node name="bleeding_status" parent="canvas_layer/hud_manager" instance=ExtResource("35_mdijk")]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 340.0
+offset_right = 314.0
+offset_bottom = 380.0
+
+[node name="pause_menu" parent="canvas_layer" instance=ExtResource("32_bu5hn")]
+z_index = 2
+offset_left = -9.0
+offset_right = -9.0
+
+[node name="menu_button" parent="canvas_layer" instance=ExtResource("36_jkvil")]
+visible = false
+z_index = 2
+offset_left = 585.0
+offset_top = 335.0
+offset_right = -40.0
+offset_bottom = -11.0
+
+[node name="sound_button" parent="canvas_layer" instance=ExtResource("32_5xr6d")]
+offset_left = 609.0
+offset_top = 335.0
+offset_right = 624.0
+offset_bottom = 349.0
+
+[node name="inventory" parent="canvas_layer" instance=ExtResource("34_yta0x")]
+offset_left = 22.0
+offset_top = 73.0
+offset_right = -475.0
+offset_bottom = -53.0
+
+[node name="Hotbar" parent="canvas_layer" instance=ExtResource("39_6mlq5")]
+offset_left = 166.0
+offset_top = 321.0
+offset_right = 260.0
+offset_bottom = 353.0
+
+[node name="fog" parent="." instance=ExtResource("34_u6dp3")]
+
+[node name="transition_screen" parent="." instance=ExtResource("36_pvmgw")]
+
+[node name="border_tile1" type="StaticBody2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(1.05, 1.05)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="border_tile1"]
+texture_filter = 1
+position = Vector2(16, 16)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_uwdhw")
+animation = &"border"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border_tile1"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_opgh2")
+
+[node name="border_tile2" type="StaticBody2D" parent="."]
+position = Vector2(320, 32)
+rotation = -3.14159
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="border_tile2"]
+texture_filter = 1
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_uwdhw")
+animation = &"border"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border_tile2"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_opgh2")
+
+[node name="border_tile3" type="StaticBody2D" parent="."]
+position = Vector2(320, 320)
+rotation = -3.14159
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="border_tile3"]
+texture_filter = 1
+position = Vector2(16, 16)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_uwdhw")
+animation = &"border"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border_tile3"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_opgh2")
+
+[node name="border_tile4" type="StaticBody2D" parent="."]
+position = Vector2(0, 288)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="border_tile4"]
+texture_filter = 1
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_uwdhw")
+animation = &"border"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border_tile4"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_opgh2")
+
+[node name="wall_1" type="StaticBody2D" parent="."]
+position = Vector2(16, 48)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_1"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_s3bpl")
+animation = &"wall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_1"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4y8wx")
+
+[node name="wall_2" type="StaticBody2D" parent="."]
+position = Vector2(16, 48)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_2"]
+texture_filter = 1
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_s3bpl")
+animation = &"wall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_2"]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_4y8wx")
+
+[node name="wall_3" type="StaticBody2D" parent="."]
+position = Vector2(16, 80)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_3"]
+texture_filter = 1
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_s3bpl")
+animation = &"wall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_3"]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_4y8wx")
+
+[node name="wall_4" type="StaticBody2D" parent="."]
+position = Vector2(16, 112)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_4"]
+texture_filter = 1
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_s3bpl")
+animation = &"wall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_4"]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_4y8wx")
+
+[node name="wall_5" type="StaticBody2D" parent="."]
+position = Vector2(16, 144)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_5"]
+texture_filter = 1
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_s3bpl")
+animation = &"wall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_5"]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_4y8wx")
+
+[node name="wall_6" type="StaticBody2D" parent="."]
+position = Vector2(16, 176)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_6"]
+texture_filter = 1
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_s3bpl")
+animation = &"wall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_6"]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_4y8wx")
+
+[node name="wall_7" type="StaticBody2D" parent="."]
+position = Vector2(16, 208)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_7"]
+texture_filter = 1
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_s3bpl")
+animation = &"wall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_7"]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_4y8wx")
+
+[node name="wall_8" type="StaticBody2D" parent="."]
+position = Vector2(16, 240)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_8"]
+texture_filter = 1
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_s3bpl")
+animation = &"wall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_8"]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_4y8wx")
+
+[node name="wall_l1" type="StaticBody2D" parent="."]
+position = Vector2(304, 48)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_l1"]
+sprite_frames = SubResource("SpriteFrames_dw333")
+animation = &"wall_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_l1"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mtlw7")
+
+[node name="wall_l2" type="StaticBody2D" parent="."]
+position = Vector2(304, 80)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_l2"]
+sprite_frames = SubResource("SpriteFrames_dw333")
+animation = &"wall_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_l2"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mtlw7")
+
+[node name="wall_l3" type="StaticBody2D" parent="."]
+position = Vector2(304, 112)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_l3"]
+sprite_frames = SubResource("SpriteFrames_dw333")
+animation = &"wall_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_l3"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mtlw7")
+
+[node name="wall_l4" type="StaticBody2D" parent="."]
+position = Vector2(304, 144)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_l4"]
+sprite_frames = SubResource("SpriteFrames_dw333")
+animation = &"wall_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_l4"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mtlw7")
+
+[node name="wall_l5" type="StaticBody2D" parent="."]
+position = Vector2(304, 176)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_l5"]
+sprite_frames = SubResource("SpriteFrames_dw333")
+animation = &"wall_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_l5"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mtlw7")
+
+[node name="wall_l6" type="StaticBody2D" parent="."]
+position = Vector2(304, 208)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_l6"]
+sprite_frames = SubResource("SpriteFrames_dw333")
+animation = &"wall_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_l6"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mtlw7")
+
+[node name="wall_l7" type="StaticBody2D" parent="."]
+position = Vector2(304, 240)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_l7"]
+sprite_frames = SubResource("SpriteFrames_dw333")
+animation = &"wall_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_l7"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mtlw7")
+
+[node name="wall_l8" type="StaticBody2D" parent="."]
+position = Vector2(304, 272)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_l8"]
+sprite_frames = SubResource("SpriteFrames_dw333")
+animation = &"wall_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_l8"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mtlw7")
+
+[node name="wall_up1" type="StaticBody2D" parent="."]
+position = Vector2(48, 16)
+scale = Vector2(1.05, 1.05)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_up1"]
+sprite_frames = SubResource("SpriteFrames_lsg6w")
+animation = &"wall_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_up1"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_vjhbb")
+
+[node name="wall_up2" type="StaticBody2D" parent="."]
+position = Vector2(80, 16)
+scale = Vector2(1.05, 1.05)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_up2"]
+sprite_frames = SubResource("SpriteFrames_lsg6w")
+animation = &"wall_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_up2"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_vjhbb")
+
+[node name="wall_up3" type="StaticBody2D" parent="."]
+position = Vector2(112, 16)
+scale = Vector2(1.05, 1.05)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_up3"]
+sprite_frames = SubResource("SpriteFrames_lsg6w")
+animation = &"wall_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_up3"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_vjhbb")
+
+[node name="wall_up4" type="StaticBody2D" parent="."]
+position = Vector2(144, 16)
+scale = Vector2(1.05, 1.05)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_up4"]
+sprite_frames = SubResource("SpriteFrames_lsg6w")
+animation = &"wall_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_up4"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_vjhbb")
+
+[node name="wall_up5" type="StaticBody2D" parent="."]
+position = Vector2(176, 16)
+scale = Vector2(1.05, 1.05)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_up5"]
+sprite_frames = SubResource("SpriteFrames_lsg6w")
+animation = &"wall_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_up5"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_vjhbb")
+
+[node name="wall_up6" type="StaticBody2D" parent="."]
+position = Vector2(208, 16)
+scale = Vector2(1.05, 1.05)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_up6"]
+sprite_frames = SubResource("SpriteFrames_lsg6w")
+animation = &"wall_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_up6"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_vjhbb")
+
+[node name="wall_up7" type="StaticBody2D" parent="."]
+position = Vector2(240, 16)
+scale = Vector2(1.05, 1.05)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_up7"]
+sprite_frames = SubResource("SpriteFrames_lsg6w")
+animation = &"wall_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_up7"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_vjhbb")
+
+[node name="wall_up8" type="StaticBody2D" parent="."]
+position = Vector2(272, 16)
+scale = Vector2(1.05, 1.05)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_up8"]
+sprite_frames = SubResource("SpriteFrames_lsg6w")
+animation = &"wall_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_up8"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_vjhbb")
+
+[node name="wall_down1" type="StaticBody2D" parent="."]
+position = Vector2(48, 304)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_down1"]
+sprite_frames = SubResource("SpriteFrames_t8qgs")
+animation = &"wall_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_down1"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sa16f")
+
+[node name="wall_down2" type="StaticBody2D" parent="."]
+position = Vector2(80, 304)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_down2"]
+sprite_frames = SubResource("SpriteFrames_t8qgs")
+animation = &"wall_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_down2"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sa16f")
+
+[node name="wall_down3" type="StaticBody2D" parent="."]
+position = Vector2(112, 304)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_down3"]
+sprite_frames = SubResource("SpriteFrames_t8qgs")
+animation = &"wall_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_down3"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sa16f")
+
+[node name="wall_down4" type="StaticBody2D" parent="."]
+position = Vector2(144, 304)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_down4"]
+sprite_frames = SubResource("SpriteFrames_t8qgs")
+animation = &"wall_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_down4"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sa16f")
+
+[node name="wall_down5" type="StaticBody2D" parent="."]
+position = Vector2(176, 304)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_down5"]
+sprite_frames = SubResource("SpriteFrames_t8qgs")
+animation = &"wall_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_down5"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sa16f")
+
+[node name="wall_down6" type="StaticBody2D" parent="."]
+position = Vector2(208, 304)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_down6"]
+sprite_frames = SubResource("SpriteFrames_t8qgs")
+animation = &"wall_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_down6"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sa16f")
+
+[node name="wall_down7" type="StaticBody2D" parent="."]
+position = Vector2(240, 304)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_down7"]
+sprite_frames = SubResource("SpriteFrames_t8qgs")
+animation = &"wall_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_down7"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sa16f")
+
+[node name="wall_down8" type="StaticBody2D" parent="."]
+position = Vector2(272, 304)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall_down8"]
+sprite_frames = SubResource("SpriteFrames_t8qgs")
+animation = &"wall_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_down8"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sa16f")
+
+[node name="torch_1" type="AnimatedSprite2D" parent="."]
+position = Vector2(272, 16)
+sprite_frames = SubResource("SpriteFrames_yo5o2")
+animation = &"torch"
+
+[node name="torch_2" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 175)
+sprite_frames = SubResource("SpriteFrames_pvmyl")
+animation = &"torch"
+
+[node name="torch_3" type="AnimatedSprite2D" parent="."]
+position = Vector2(304, 176)
+sprite_frames = SubResource("SpriteFrames_3aq2i")
+animation = &"torch"
+
+[node name="solana_logo" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(299.75, 252)
+scale = Vector2(0.321428, 0.321428)
+sprite_frames = SubResource("SpriteFrames_a6yfg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(21, 139)
+scale = Vector2(0.333333, 0.333333)
+sprite_frames = SubResource("SpriteFrames_0r4k7")
+animation = &"seternia_logo"
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = SubResource("TileSet_r4i54")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(720895, 458752, 5, 655359, 458752, 5, 589823, 458752, 5, 524287, 458752, 5, 458751, 458752, 5, 393215, 458752, 5, 327679, 458752, 5, 262143, 458752, 5, 196607, 458752, 5, 131071, 458752, 5, 65535, 458752, 5, -1, 458752, 5, 720894, 458752, 5, 655358, 458752, 5, 589822, 458752, 5, 524286, 458752, 5, 458750, 458752, 5, 393214, 458752, 5, 327678, 458752, 5, 262142, 458752, 5, 196606, 458752, 5, 131070, 458752, 5, 65534, 458752, 5, -2, 458752, 5, 720893, 458752, 5, 655357, 458752, 5, 589821, 458752, 5, 524285, 458752, 5, 458749, 458752, 5, 393213, 458752, 5, 327677, 458752, 5, 262141, 458752, 5, 196605, 458752, 5, 131069, 458752, 5, 65533, 458752, 5, -3, 458752, 5, 720892, 458752, 5, 655356, 458752, 5, 589820, 458752, 5, 524284, 458752, 5, 458748, 458752, 5, 393212, 458752, 5, 327676, 458752, 5, 262140, 458752, 5, 196604, 458752, 5, 131068, 458752, 5, 65532, 458752, 5, -4, 458752, 5, 720891, 458752, 5, 655355, 458752, 5, 589819, 458752, 5, 524283, 458752, 5, 458747, 458752, 5, 393211, 458752, 5, 327675, 458752, 5, 262139, 458752, 5, 196603, 458752, 5, 131067, 458752, 5, 65531, 458752, 5, -5, 458752, 5, 655374, 458752, 5, 589838, 458752, 5, 524302, 458752, 5, 458766, 458752, 5, 393230, 458752, 5, 327694, 458752, 5, 262158, 458752, 5, 196622, 458752, 5, 131086, 458752, 5, 65550, 458752, 5, 14, 458752, 5, -65522, 458752, 5, 655373, 458752, 5, 589837, 458752, 5, 524301, 458752, 5, 458765, 458752, 5, 393229, 458752, 5, 327693, 458752, 5, 262157, 458752, 5, 196621, 458752, 5, 131085, 458752, 5, 65549, 458752, 5, 13, 458752, 5, -65523, 458752, 5, 655372, 458752, 5, 589836, 458752, 5, 524300, 458752, 5, 458764, 458752, 5, 393228, 458752, 5, 327692, 458752, 5, 262156, 458752, 5, 196620, 458752, 5, 131084, 458752, 5, 65548, 458752, 5, 12, 458752, 5, -65524, 458752, 5, 655371, 458752, 5, 589835, 458752, 5, 524299, 458752, 5, 458763, 458752, 5, 393227, 458752, 5, 327691, 458752, 5, 262155, 458752, 5, 196619, 458752, 5, 131083, 458752, 5, 65547, 458752, 5, 11, 458752, 5, -65525, 458752, 5, 655370, 458752, 5, 589834, 458752, 5, 524298, 458752, 5, 458762, 458752, 5, 393226, 458752, 5, 327690, 458752, 5, 262154, 458752, 5, 196618, 458752, 5, 131082, 458752, 5, 65546, 458752, 5, 10, 458752, 5, -65526, 458752, 5, 655369, 458752, 5, 655368, 458752, 5, 655367, 458752, 5, 655366, 458752, 5, 655365, 458752, 5, 655364, 458752, 5, 655363, 458752, 5, 655362, 458752, 5, 655361, 458752, 5, 655360, 458752, 5, -65527, 458752, 5, -65528, 458752, 5, -65529, 458752, 5, -65530, 458752, 5, -65531, 458752, 5, -65532, 458752, 5, -65533, 458752, 5, -65534, 458752, 5, -65535, 458752, 5, -65536, 458752, 5, -65541, 458752, 5, -65540, 458752, 5, -65539, 458752, 5, -65538, 458752, 5, -65537, 458752, 5, -131072, 458752, 5, -131071, 458752, 5, -131070, 458752, 5, -131069, 458752, 5, -131068, 458752, 5, -131067, 458752, 5, -131066, 458752, 5, -131065, 458752, 5, -131064, 458752, 5, -131063, 458752, 5, -131062, 458752, 5, -131061, 458752, 5, -131060, 458752, 5, -131059, 458752, 5, -131058, 458752, 5, 786427, 458752, 5, 786428, 458752, 5, 786429, 458752, 5, 786430, 458752, 5, 786431, 458752, 5, 720896, 458752, 5, 720898, 458752, 5, 720897, 458752, 5, 720899, 458752, 5, 720900, 458752, 5, 720901, 458752, 5, 720902, 458752, 5, 720903, 458752, 5, 720909, 458752, 5, 720910, 458752, 5, 720908, 458752, 5, 720907, 458752, 5, 720906, 458752, 5, 720905, 458752, 5, 720904, 458752, 5, -196613, 458752, 5, -196612, 458752, 5, -196611, 458752, 5, -196610, 458752, 5, -196609, 458752, 5, -262144, 458752, 5, -262143, 458752, 5, -262142, 458752, 5, -262141, 458752, 5, -262140, 458752, 5, -262139, 458752, 5, -262138, 458752, 5, -262137, 458752, 5, -262136, 458752, 5, -262135, 458752, 5, -262134, 458752, 5, -262133, 458752, 5, -262132, 458752, 5, -262131, 458752, 5, -262130, 458752, 5, -196594, 458752, 5, -196595, 458752, 5, -196596, 458752, 5, -196597, 458752, 5, -196598, 458752, 5, -196599, 458752, 5, -196600, 458752, 5, -196601, 458752, 5, -196602, 458752, 5, -196603, 458752, 5, -196604, 458752, 5, -196605, 458752, 5, -196606, 458752, 5, -196607, 458752, 5, -196608, 458752, 5, -131073, 458752, 5, -131074, 458752, 5, -131075, 458752, 5, -131076, 458752, 5, -131077, 458752, 5, -196614, 458752, 5, -131078, 458752, 5, -65542, 458752, 5, -6, 458752, 5, 65530, 458752, 5, 131066, 458752, 5, 196602, 458752, 5, 262138, 458752, 5, 327674, 458752, 5, 393210, 458752, 5, 458746, 458752, 5, 524282, 458752, 5, 589818, 458752, 5, 655354, 458752, 5, 720890, 458752, 5, 786426, 458752, 5, 786425, 458752, 5, 786424, 458752, 5, 720888, 458752, 5, 655352, 458752, 5, 589816, 458752, 5, 524280, 458752, 5, 458744, 458752, 5, 393208, 458752, 5, 393209, 458752, 5, 327673, 458752, 5, 262137, 458752, 5, 196601, 458752, 5, 131065, 458752, 5, 65529, 458752, 5, -7, 458752, 5, -65543, 458752, 5, -131079, 458752, 5, -131080, 458752, 5, -196616, 458752, 5, -196615, 458752, 5, -65544, 458752, 5, -8, 458752, 5, 65528, 458752, 5, 131064, 458752, 5, 196600, 458752, 5, 262136, 458752, 5, 327672, 458752, 5, 458745, 458752, 5, 524281, 458752, 5, 589817, 458752, 5, 655353, 458752, 5, 720889, 458752, 5, -196618, 458752, 5, -196617, 458752, 5, -131081, 458752, 5, -65545, 458752, 5, -9, 458752, 5, 65527, 458752, 5, 131063, 458752, 5, 196599, 458752, 5, 262135, 458752, 5, 327671, 458752, 5, 393207, 458752, 5, 458743, 458752, 5, 524279, 458752, 5, 589815, 458752, 5, 655351, 458752, 5, 720887, 458752, 5, 786423, 458752, 5, 786422, 458752, 5, 720886, 458752, 5, 655350, 458752, 5, 589814, 458752, 5, 524278, 458752, 5, 458742, 458752, 5, 393206, 458752, 5, 327670, 458752, 5, 262134, 458752, 5, 196598, 458752, 5, 131062, 458752, 5, 65526, 458752, 5, -10, 458752, 5, -65546, 458752, 5, -131082, 458752, 5, 851984, 458752, 5, 851983, 458752, 5, 851982, 458752, 5, 851981, 458752, 5, 851980, 458752, 5, 851979, 458752, 5, 851978, 458752, 5, 851977, 458752, 5, 851976, 458752, 5, 851975, 458752, 5, 851974, 458752, 5, 851973, 458752, 5, 851972, 458752, 5, 786435, 458752, 5, 786434, 458752, 5, 786433, 458752, 5, 786432, 458752, 5, 851967, 458752, 5, 851966, 458752, 5, 851965, 458752, 5, 851964, 458752, 5, 851963, 458752, 5, 851962, 458752, 5, 851961, 458752, 5, 851960, 458752, 5, 851959, 458752, 5, 851958, 458752, 5, -262129, 458752, 5, -196593, 458752, 5, -131057, 458752, 5, -131056, 458752, 5, -65520, 458752, 5, 16, 458752, 5, 65552, 458752, 5, 131088, 458752, 5, 196624, 458752, 5, 262160, 458752, 5, 327696, 458752, 5, 393231, 458752, 5, 458767, 458752, 5, 524303, 458752, 5, 589839, 458752, 5, 655375, 458752, 5, 720911, 458752, 5, 786448, 458752, 5, 720912, 458752, 5, 655376, 458752, 5, 589840, 458752, 5, 524304, 458752, 5, 458768, 458752, 5, 393232, 458752, 5, -196592, 458752, 5, -262128, 458752, 5, 15, 458752, 5, 65551, 458752, 5, 131087, 458752, 5, 196623, 458752, 5, 262159, 458752, 5, 327695, 458752, 5, -65521, 458752, 5, 786447, 458752, 5, 786446, 458752, 5, 786445, 458752, 5, 786444, 458752, 5, 786443, 458752, 5, 786442, 458752, 5, 786441, 458752, 5, 786440, 458752, 5, 786439, 458752, 5, 786438, 458752, 5, 786437, 458752, 5, 786436, 458752, 5, 917494, 458752, 5, 983030, 458752, 5, 983031, 458752, 5, 983032, 458752, 5, 983033, 458752, 5, 983034, 458752, 5, 983035, 458752, 5, 983036, 458752, 5, 983037, 458752, 5, 983038, 458752, 5, 983039, 458752, 5, 917504, 458752, 5, 917505, 458752, 5, 917506, 458752, 5, 917507, 458752, 5, 917508, 458752, 5, 917509, 458752, 5, 917510, 458752, 5, 917511, 458752, 5, 917512, 458752, 5, 917513, 458752, 5, 917514, 458752, 5, 917515, 458752, 5, 917516, 458752, 5, 917517, 458752, 5, 917518, 458752, 5, 917519, 458752, 5, 917520, 458752, 5, 851971, 458752, 5, 851970, 458752, 5, 851969, 458752, 5, 851968, 458752, 5, 917503, 458752, 5, 917502, 458752, 5, 917501, 458752, 5, 917500, 458752, 5, 917499, 458752, 5, 917498, 458752, 5, 917497, 458752, 5, 917496, 458752, 5, 917495, 458752, 5, -262127, 458752, 5, -196591, 458752, 5, -131055, 458752, 5, -65519, 458752, 5, 17, 458752, 5, 65553, 458752, 5, 131089, 458752, 5, 262161, 458752, 5, 196625, 458752, 5, 327697, 458752, 5, 393233, 458752, 5, 458769, 458752, 5, 524305, 458752, 5, 589841, 458752, 5, 655377, 458752, 5, 720913, 458752, 5, 786449, 458752, 5, 851985, 458752, 5, 917521, 458752, 5)

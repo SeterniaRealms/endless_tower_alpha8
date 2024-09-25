@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfufm07lf2ymc"]
+
+[ext_resource type="Script" path="res://scripts/tiles/random_pot.gd" id="1_bbeo0"]
+[ext_resource type="Texture2D" uid="uid://lfh2rvbe163l" path="res://assets/Items/random_potion/Icon16.png" id="1_lqsvv"]
+[ext_resource type="AudioStream" uid="uid://cbt3m8lbeio2g" path="res://sfx/pickup/411178__silverillusionist__pick-up-item-2.wav" id="2_yqhb0"]
+[ext_resource type="Resource" uid="uid://cah667mlxm38t" path="res://scripts/Inventory/Items/random_pot.tres" id="3_d5d8x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2uky"]
+atlas = ExtResource("1_lqsvv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7gsfk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2uky")
+}],
+"loop": true,
+"name": &"random_pot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0oxs"]
+size = Vector2(11, 17)
+
+[node name="random_pot" type="Area2D"]
+script = ExtResource("1_bbeo0")
+sfx_collect = Array[AudioStream]([ExtResource("2_yqhb0")])
+itemRes = ExtResource("3_d5d8x")
+
+[node name="animatedsprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_7gsfk")
+animation = &"random_pot"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_r0oxs")
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="."]

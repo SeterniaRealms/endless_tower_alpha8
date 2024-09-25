@@ -1,0 +1,240 @@
+[gd_scene load_steps=16 format=3 uid="uid://bhgyvhqklj87i"]
+
+[ext_resource type="Texture2D" uid="uid://d1q57osa2relk" path="res://UI/Button/PLAY_BUTTON.png" id="1_0krut"]
+[ext_resource type="Script" path="res://scripts/menu_game.gd" id="1_lnl26"]
+[ext_resource type="Texture2D" uid="uid://c3r43bdqid3ed" path="res://UI/Button/PLAY_BUTTON_pressed.png" id="2_712jb"]
+[ext_resource type="Texture2D" uid="uid://cto7kbgcmsiq0" path="res://UI/Background/ENDLESS TOWER - BG.png" id="2_bke7r"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="3_455o4"]
+[ext_resource type="Texture2D" uid="uid://b2wloxfjpu3co" path="res://UI/Logo/Logo_game.png" id="3_oqm53"]
+[ext_resource type="FontFile" uid="uid://dnk1i8nwchfk5" path="res://UI/Fonts/SPECTRAL-REGULAR.TTF" id="4_nohxh"]
+[ext_resource type="Texture2D" uid="uid://8q5vs3ruil45" path="res://UI/Button/LEADERBOARD_BUTTON.png" id="4_v5gll"]
+[ext_resource type="Texture2D" uid="uid://bl7sbiq8rgi2d" path="res://UI/Button/LEADERBOARD_BUTTON_pressed.png" id="5_evqec"]
+[ext_resource type="PackedScene" uid="uid://bovasqadpaxv3" path="res://scenes/sound_button.tscn" id="5_k5q5p"]
+[ext_resource type="Texture2D" uid="uid://ddr5e1h0qvn4b" path="res://UI/Button/TUTORIAL_BUTTON.png" id="6_tokj2"]
+[ext_resource type="Texture2D" uid="uid://d0ptinbfncgcj" path="res://UI/Button/TUTORIAL_BUTTON_pressed.png" id="7_op5iw"]
+[ext_resource type="Texture2D" uid="uid://bv8ba4q2sqe8k" path="res://UI/Background/decoration_bg.png" id="12_girb6"]
+[ext_resource type="AudioStream" uid="uid://dk38cpjwqfkty" path="res://sfx/Buttons/play_game/617763__cogfirestudios__achievement-sylized-fx-3.wav" id="14_kasvn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8db42"]
+
+[node name="menu_game" type="CanvasLayer"]
+script = ExtResource("1_lnl26")
+metadata/_edit_vertical_guides_ = [320.0]
+metadata/_edit_horizontal_guides_ = [330.0]
+
+[node name="Control" type="Control" parent="."]
+z_index = 1
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51875
+anchor_top = 0.519444
+anchor_right = 3.3625
+anchor_bottom = 3.28333
+offset_left = -323.0
+offset_top = -180.0
+offset_right = -283.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.333213, 0.333213)
+texture = ExtResource("12_girb6")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 497.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bke7r")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.222
+anchor_right = 0.5
+anchor_bottom = 0.222
+offset_left = -115.0
+offset_top = -47.92
+offset_right = 655.0
+offset_bottom = 432.08
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.296007, 0.296007)
+texture = ExtResource("3_oqm53")
+
+[node name="Version" type="Label" parent="Control/Panel"]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = 5.0
+offset_right = 197.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.408196, 0.408196)
+theme_override_colors/font_color = Color(1, 0.901961, 0.388235, 1)
+theme_override_fonts/font = ExtResource("4_nohxh")
+theme_override_font_sizes/font_size = 30
+text = "Alpha Version"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = 101.0
+offset_right = 313.0
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="play_button" type="TextureButton" parent="Control/Panel/HBoxContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("1_0krut")
+texture_pressed = ExtResource("2_712jb")
+texture_hover = ExtResource("2_712jb")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="play" type="Label" parent="Control/Panel/HBoxContainer/VBoxContainer/play_button"]
+layout_mode = 2
+offset_top = 104.0
+offset_right = 100.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("3_455o4")
+theme_override_font_sizes/font_size = 20
+text = "PLAY"
+label_settings = SubResource("LabelSettings_8db42")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="leaderboard_button" type="TextureButton" parent="Control/Panel/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("4_v5gll")
+texture_pressed = ExtResource("5_evqec")
+texture_hover = ExtResource("5_evqec")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="leaderboard" type="Label" parent="Control/Panel/HBoxContainer/VBoxContainer2/leaderboard_button"]
+layout_mode = 2
+offset_left = -15.0
+offset_top = 104.0
+offset_right = 115.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("3_455o4")
+theme_override_font_sizes/font_size = 20
+text = "LEADERBOARD
+"
+label_settings = SubResource("LabelSettings_8db42")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="tutorial_button" type="TextureButton" parent="Control/Panel/HBoxContainer/VBoxContainer3"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("6_tokj2")
+texture_pressed = ExtResource("7_op5iw")
+texture_hover = ExtResource("7_op5iw")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="tutorial" type="Label" parent="Control/Panel/HBoxContainer/VBoxContainer3/tutorial_button"]
+layout_mode = 2
+offset_top = 104.0
+offset_right = 100.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("3_455o4")
+theme_override_font_sizes/font_size = 20
+text = "TUTORIAL"
+label_settings = SubResource("LabelSettings_8db42")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sound_button" parent="Control/Panel" instance=ExtResource("5_k5q5p")]
+offset_left = 596.0
+offset_top = 316.0
+offset_right = 611.0
+offset_bottom = 330.0
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="Control"]
+position = Vector2(1, 0)
+stream = ExtResource("14_kasvn")
+
+[connection signal="mouse_entered" from="Control/Panel/HBoxContainer/VBoxContainer/play_button" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Panel/HBoxContainer/VBoxContainer/play_button" to="." method="_on_play_button_mouse_exited"]
+[connection signal="pressed" from="Control/Panel/HBoxContainer/VBoxContainer/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="Control/Panel/HBoxContainer/VBoxContainer2/leaderboard_button" to="." method="_on_leaderboard_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Panel/HBoxContainer/VBoxContainer2/leaderboard_button" to="." method="_on_leaderboard_button_mouse_exited"]
+[connection signal="pressed" from="Control/Panel/HBoxContainer/VBoxContainer2/leaderboard_button" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="mouse_entered" from="Control/Panel/HBoxContainer/VBoxContainer3/tutorial_button" to="." method="_on_tutorial_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Panel/HBoxContainer/VBoxContainer3/tutorial_button" to="." method="_on_tutorial_button_mouse_exited"]
+[connection signal="pressed" from="Control/Panel/HBoxContainer/VBoxContainer3/tutorial_button" to="." method="_on_tutorial_button_pressed"]

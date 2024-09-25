@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c50non5q1162"]
+
+[ext_resource type="Script" path="res://scripts/itemsStack.gd" id="1_3fffi"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="1_fhlv8"]
+
+[node name="Panel" type="Panel"]
+script = ExtResource("1_3fffi")
+
+[node name="item" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+
+[node name="label" type="Label" parent="."]
+custom_minimum_size = Vector2(10, 13)
+layout_mode = 0
+offset_left = 3.0
+offset_top = -0.933223
+offset_right = 13.0
+offset_bottom = 12.0668
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.144063, 0.144063, 0.144063, 0.784314)
+theme_override_fonts/font = ExtResource("1_fhlv8")
+theme_override_font_sizes/font_size = 8

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Health_Item" load_steps=3 format=3 uid="uid://c6iynahei61j7"]
+
+[ext_resource type="Script" path="res://scripts/Inventory/health_item.gd" id="1_xxcmm"]
+[ext_resource type="Texture2D" uid="uid://dw6c676eivfuq" path="res://assets/Items/Meat/Icon43.png" id="2_tuouq"]
+
+[resource]
+script = ExtResource("1_xxcmm")
+restore_hp = 4
+name = "Meat"
+info = "Heal 4 HP"
+rarity = "Common"
+texture = ExtResource("2_tuouq")
+maxAmountPrStack = 5

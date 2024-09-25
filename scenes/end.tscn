@@ -1,0 +1,551 @@
+[gd_scene load_steps=15 format=3 uid="uid://d2wsuo5j4qnvr"]
+
+[ext_resource type="Script" path="res://scripts/manager/end_manager.gd" id="1_ivv5f"]
+[ext_resource type="Texture2D" uid="uid://bx4eq4ocenm24" path="res://UI/Background/ENDLESS TOWER - BG GAME OVER.png" id="2_0qgts"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="2_icq4t"]
+[ext_resource type="PackedScene" uid="uid://cg7nylkqci1jv" path="res://prefabs/inventory.tscn" id="2_n8tlg"]
+[ext_resource type="FontFile" uid="uid://dnk1i8nwchfk5" path="res://UI/Fonts/SPECTRAL-REGULAR.TTF" id="3_i6mft"]
+[ext_resource type="Texture2D" uid="uid://bscuaq4wphq7f" path="res://UI/Button/Button_1.png" id="5_ooivg"]
+[ext_resource type="Texture2D" uid="uid://omketxysbpg" path="res://UI/Button/Button_1_hover.png" id="6_xp72x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0ikh"]
+bg_color = Color(0.0588235, 0.0588235, 0.0666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df6mg"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m62qv"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_miwrd"]
+texture = ExtResource("6_xp72x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2eb8"]
+texture = ExtResource("5_ooivg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mbg4"]
+texture = ExtResource("6_xp72x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k6olp"]
+texture = ExtResource("5_ooivg")
+
+[node name="end" type="CanvasLayer" node_paths=PackedStringArray("_name", "_label_message", "_label_title", "_floor_container", "_save_progress", "_load_progress", "_ranking_container")]
+script = ExtResource("1_ivv5f")
+inventory = ExtResource("2_n8tlg")
+_name = NodePath("vcontainer/hcointainer/name")
+_label_message = NodePath("label_message")
+_label_title = NodePath("label_title")
+_floor_container = NodePath("vcontainer")
+_save_progress = NodePath("save_progress")
+_load_progress = NodePath("load_progress")
+_ranking_container = NodePath("ranking_container")
+
+[node name="control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="color" type="ColorRect" parent="control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0862745, 0.0666667, 0.156863, 1)
+
+[node name="TextureRect" type="TextureRect" parent="control"]
+layout_mode = 0
+offset_top = -169.0
+offset_right = 640.0
+offset_bottom = 471.0
+texture = ExtResource("2_0qgts")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vcontainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -31.0
+offset_right = 109.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hcointainer" type="HBoxContainer" parent="vcontainer"]
+layout_mode = 2
+
+[node name="name" type="LineEdit" parent="vcontainer/hcointainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+placeholder_text = "Discord Username"
+caret_blink = true
+
+[node name="label_message" type="Label" parent="vcontainer/hcointainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_i6mft")
+text = "3 floors"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="submit_button" type="Button" parent="vcontainer/hcointainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_b0ikh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_df6mg")
+action_mode = 0
+text = "Submit"
+
+[node name="button_leaderboard_container" type="HBoxContainer" parent="vcontainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="button_leaderboard" type="Button" parent="vcontainer/button_leaderboard_container"]
+texture_filter = 1
+custom_minimum_size = Vector2(140, 25)
+layout_mode = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_b0ikh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m62qv")
+action_mode = 0
+text = "Acess Leaderboard"
+
+[node name="label_title" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.5
+offset_top = 35.0
+offset_right = 81.5
+offset_bottom = 77.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 30
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label_message" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = -72.0
+offset_right = 122.5
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+text = "You survived 3 floors."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button_restart" type="Button" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -39.0
+offset_right = 31.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_miwrd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_p2eb8")
+action_mode = 0
+text = "Restart"
+
+[node name="button_menu" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -39.0
+offset_right = 95.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_8mbg4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k6olp")
+action_mode = 0
+text = "Menu"
+
+[node name="save_progress" type="Label" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -11.5
+offset_right = 73.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+text = "Sending data to the server..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="load_progress" type="Label" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -11.5
+offset_right = 73.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+text = "Accessing server data..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ranking_container" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -159.0
+offset_right = 108.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="ranking_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 30
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot_1" type="HBoxContainer" parent="ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="ranking_container/slot_1"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+text = "1."
+
+[node name="name" type="Label" parent="ranking_container/slot_1"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+
+[node name="floor" type="Label" parent="ranking_container/slot_1"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[node name="slot_2" type="HBoxContainer" parent="ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="ranking_container/slot_2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+text = "1."
+
+[node name="name" type="Label" parent="ranking_container/slot_2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+
+[node name="floor" type="Label" parent="ranking_container/slot_2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[node name="slot_3" type="HBoxContainer" parent="ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="ranking_container/slot_3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+text = "1."
+
+[node name="name" type="Label" parent="ranking_container/slot_3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+
+[node name="floor" type="Label" parent="ranking_container/slot_3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[node name="slot_4" type="HBoxContainer" parent="ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="ranking_container/slot_4"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+text = "1."
+
+[node name="name" type="Label" parent="ranking_container/slot_4"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+
+[node name="floor" type="Label" parent="ranking_container/slot_4"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[node name="slot_5" type="HBoxContainer" parent="ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="ranking_container/slot_5"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+text = "1."
+
+[node name="name" type="Label" parent="ranking_container/slot_5"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+
+[node name="floor" type="Label" parent="ranking_container/slot_5"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[node name="slot_6" type="HBoxContainer" parent="ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="ranking_container/slot_6"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+text = "1."
+
+[node name="name" type="Label" parent="ranking_container/slot_6"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+
+[node name="floor" type="Label" parent="ranking_container/slot_6"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[node name="slot_7" type="HBoxContainer" parent="ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="ranking_container/slot_7"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+text = "1."
+
+[node name="name" type="Label" parent="ranking_container/slot_7"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+
+[node name="floor" type="Label" parent="ranking_container/slot_7"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[node name="slot_8" type="HBoxContainer" parent="ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="ranking_container/slot_8"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+text = "1."
+
+[node name="name" type="Label" parent="ranking_container/slot_8"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+
+[node name="floor" type="Label" parent="ranking_container/slot_8"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[node name="slot_9" type="HBoxContainer" parent="ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="ranking_container/slot_9"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+text = "1."
+
+[node name="name" type="Label" parent="ranking_container/slot_9"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+
+[node name="floor" type="Label" parent="ranking_container/slot_9"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[node name="slot_10" type="HBoxContainer" parent="ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="ranking_container/slot_10"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+text = "1."
+
+[node name="name" type="Label" parent="ranking_container/slot_10"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i6mft")
+theme_override_font_sizes/font_size = 12
+
+[node name="floor" type="Label" parent="ranking_container/slot_10"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_icq4t")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[connection signal="pressed" from="vcontainer/hcointainer/submit_button" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="vcontainer/button_leaderboard_container/button_leaderboard" to="." method="_on_button_leaderboard_pressed"]
+[connection signal="pressed" from="button_restart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="button_menu" to="." method="_on_button_menu_pressed"]

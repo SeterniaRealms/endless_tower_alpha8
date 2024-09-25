@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=3 uid="uid://becr5jf0ptc4c"]
+
+[ext_resource type="Script" path="res://scripts/tiles/chest_tile.gd" id="1_23trp"]
+[ext_resource type="Texture2D" uid="uid://bqhjc26jcp424" path="res://UI/Chest/1.png" id="1_md3c8"]
+[ext_resource type="Texture2D" uid="uid://dyqatxbvistjq" path="res://UI/Chest/2.png" id="2_lhnm7"]
+[ext_resource type="Texture2D" uid="uid://8qxhldfdvn2f" path="res://UI/Chest/3.png" id="3_pp5ph"]
+[ext_resource type="Texture2D" uid="uid://dr2pli5bey8ae" path="res://UI/Chest/4.png" id="4_bs847"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pht8g"]
+atlas = ExtResource("1_md3c8")
+region = Rect2(0, 6, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k5vk"]
+atlas = ExtResource("1_md3c8")
+region = Rect2(0, 6, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji7ri"]
+atlas = ExtResource("2_lhnm7")
+region = Rect2(0, 6, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuy21"]
+atlas = ExtResource("3_pp5ph")
+region = Rect2(0, 6, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gx3g"]
+atlas = ExtResource("4_bs847")
+region = Rect2(0, 6, 32, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j4ys7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pht8g")
+}],
+"loop": false,
+"name": &"chest",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k5vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji7ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuy21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gx3g")
+}],
+"loop": false,
+"name": &"chest_open",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4mxl"]
+size = Vector2(22, 24)
+
+[node name="chest_tile" type="StaticBody2D"]
+script = ExtResource("1_23trp")
+
+[node name="animated_sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j4ys7")
+animation = &"chest"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_v4mxl")
+
+[node name="damage_numbers_origin" type="Node2D" parent="."]
+position = Vector2(0, -11)

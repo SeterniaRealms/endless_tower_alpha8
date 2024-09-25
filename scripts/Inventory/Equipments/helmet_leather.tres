@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Equip_Item" load_steps=3 format=3 uid="uid://ubbtqi3whwd5"]
+
+[ext_resource type="Script" path="res://scripts/Inventory/equip_item.gd" id="1_qdmta"]
+[ext_resource type="Texture2D" uid="uid://cevtvlnr732jp" path="res://assets/Equipments/Helmet_leather.png" id="2_r3jq1"]
+
+[resource]
+script = ExtResource("1_qdmta")
+name = "Leather Helmet"
+info = "Helmet equipment."
+rarity = "Common"
+texture = ExtResource("2_r3jq1")
+maxAmountPrStack = 1
+attribute_type = "DEF"
+attribute_value = 5

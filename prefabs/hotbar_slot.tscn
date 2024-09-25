@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://e2m6mklfvof4"]
+
+[ext_resource type="Script" path="res://scripts/hotbar_slot.gd" id="1_skgba"]
+[ext_resource type="Texture2D" uid="uid://bm0buxpw56np0" path="res://UI/UI_inventory/inventory_slots2.png" id="2_puxy0"]
+[ext_resource type="PackedScene" uid="uid://c50non5q1162" path="res://prefabs/itemsStack.tscn" id="3_kdvfv"]
+
+[node name="Hotbarslot" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 22.0
+offset_bottom = 23.0
+script = ExtResource("1_skgba")
+
+[node name="background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_puxy0")
+centered = false
+vframes = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 23.0
+scale = Vector2(1, 0.992635)
+
+[node name="Panel" parent="CenterContainer" instance=ExtResource("3_kdvfv")]
+layout_mode = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

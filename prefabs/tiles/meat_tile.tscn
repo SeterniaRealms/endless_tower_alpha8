@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://br012athen28l"]
+
+[ext_resource type="Script" path="res://scripts/tiles/meat_tile.gd" id="1_6u8jl"]
+[ext_resource type="Resource" uid="uid://c6iynahei61j7" path="res://scripts/Inventory/Items/meat.tres" id="3_m2uvi"]
+[ext_resource type="AudioStream" uid="uid://cbt3m8lbeio2g" path="res://sfx/pickup/411178__silverillusionist__pick-up-item-2.wav" id="4_bac1r"]
+[ext_resource type="Texture2D" uid="uid://dw6c676eivfuq" path="res://assets/Items/Meat/Icon43.png" id="4_qona2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y1e4"]
+atlas = ExtResource("4_qona2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ojh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y1e4")
+}],
+"loop": false,
+"name": &"meat",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_513lq"]
+size = Vector2(16, 16)
+
+[node name="meat_tile" type="Area2D"]
+script = ExtResource("1_6u8jl")
+sfx_collect = Array[AudioStream]([ExtResource("4_bac1r")])
+itemRes = ExtResource("3_m2uvi")
+
+[node name="animated_sprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8ojh0")
+animation = &"meat"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_513lq")
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bac1r")
+volume_db = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

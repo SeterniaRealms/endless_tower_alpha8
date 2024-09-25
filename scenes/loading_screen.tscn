@@ -1,0 +1,166 @@
+[gd_scene load_steps=16 format=3 uid="uid://byy1dr0obkec3"]
+
+[ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_v1btn"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="2_cx704"]
+[ext_resource type="Texture2D" uid="uid://c6pvvcvve1d2u" path="res://UI/Loading Screen/LOADING SCREEN 1.png" id="2_rh5w5"]
+[ext_resource type="Texture2D" uid="uid://c3lk2emqodk2j" path="res://UI/Loading Screen/only_rune.png" id="3_xpoym"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpq7w"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r21ck"]
+bg_color = Color(1, 0.901961, 0.388235, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2g2v"]
+atlas = ExtResource("3_xpoym")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mucj"]
+atlas = ExtResource("3_xpoym")
+region = Rect2(64, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxvhm"]
+atlas = ExtResource("3_xpoym")
+region = Rect2(128, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah311"]
+atlas = ExtResource("3_xpoym")
+region = Rect2(192, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh2hb"]
+atlas = ExtResource("3_xpoym")
+region = Rect2(256, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujl7h"]
+atlas = ExtResource("3_xpoym")
+region = Rect2(320, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b43bj"]
+atlas = ExtResource("3_xpoym")
+region = Rect2(384, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjto4"]
+atlas = ExtResource("3_xpoym")
+region = Rect2(448, 0, 64, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvsit"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2g2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mucj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxvhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah311")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh2hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujl7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b43bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjto4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="loading_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v1btn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rh5w5")
+expand_mode = 2
+
+[node name="progressbar" type="ProgressBar" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = 161.0
+offset_right = 284.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_vpq7w")
+theme_override_styles/fill = SubResource("StyleBoxFlat_r21ck")
+max_value = 1.0
+step = 0.0
+show_percentage = false
+
+[node name="percentage_label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 263.0
+offset_top = -38.0
+offset_right = 296.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_cx704")
+theme_override_font_sizes/font_size = 10
+text = "10%"
+
+[node name="loading" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 210.0
+offset_top = 142.0
+offset_right = 291.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_cx704")
+theme_override_font_sizes/font_size = 10
+text = "Loading..."
+
+[node name="crystal" type="AnimatedSprite2D" parent="CanvasLayer/Panel"]
+position = Vector2(521, 328)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_hvsit")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.892093

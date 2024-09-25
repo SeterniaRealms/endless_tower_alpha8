@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://3aqgjsno2ywi"]
+
+[ext_resource type="Texture2D" uid="uid://bblny5o2a1ot5" path="res://assets/Status/Blood_status.png" id="1_7nbbo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdb4h"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+border_blend = true
+
+[node name="bleeding_status" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.261123, 0.261123)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sdb4h")
+
+[node name="bleeding" type="Sprite2D" parent="."]
+position = Vector2(20, 20)
+texture = ExtResource("1_7nbbo")

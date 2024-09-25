@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccgidgspgwnjy"]
+
+[ext_resource type="Texture2D" uid="uid://bm0buxpw56np0" path="res://UI/UI_inventory/inventory_slots2.png" id="1_d7amd"]
+[ext_resource type="Texture2D" uid="uid://blqh4koep03c7" path="res://UI/UI_inventory/equip_slots/gloves_slot.png" id="2_g3ofk"]
+
+[node name="slot_gloves" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("1_d7amd")
+centered = false
+vframes = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 88.0
+offset_bottom = 79.0
+scale = Vector2(0.194225, 0.194225)
+texture = ExtResource("2_g3ofk")
+expand_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_filter = 1

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk2c2tvkcltdx"]
+
+[ext_resource type="Texture2D" uid="uid://bm0buxpw56np0" path="res://UI/UI_inventory/inventory_slots2.png" id="1_wmb2n"]
+[ext_resource type="Texture2D" uid="uid://ckkhc5ryg6g7v" path="res://UI/UI_inventory/equip_slots/shoes_slot.png" id="2_3weea"]
+
+[node name="slot_shoes" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("1_wmb2n")
+centered = false
+vframes = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 83.0
+offset_bottom = 79.0
+scale = Vector2(0.203943, 0.203943)
+texture = ExtResource("2_3weea")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_filter = 1

@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://bomgey52u47ya"]
+
+[ext_resource type="Script" path="res://scripts/menu_button.gd" id="1_23tn4"]
+[ext_resource type="Texture2D" uid="uid://cb6md6e8kmy4q" path="res://UI/Menu_ingame/Menu_icon.png" id="1_s1fxv"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="2_0clom"]
+[ext_resource type="PackedScene" uid="uid://bh876p6a6uf4f" path="res://scenes/pause_menu.tscn" id="2_wouqc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjuu8"]
+bg_color = Color(0.160784, 0.160784, 0.168627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fttlm"]
+bg_color = Color(0.160784, 0.160784, 0.168627, 1)
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0, 0, 0, 0)
+
+[node name="menu_button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_23tn4")
+pause_menu_scene = ExtResource("2_wouqc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 14.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mjuu8")
+
+[node name="menu" type="TextureButton" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.5
+offset_top = -3.0
+offset_right = 17.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.425214, 0.419705)
+texture_normal = ExtResource("1_s1fxv")
+
+[node name="Panel2" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = -3.0
+offset_right = 43.0
+offset_bottom = 18.0
+scale = Vector2(0.349504, 0.349504)
+theme_override_styles/panel = SubResource("StyleBoxFlat_fttlm")
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -2.0
+offset_right = 31.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("2_0clom")
+theme_override_font_sizes/font_size = 15
+text = "Esc"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/menu" to="." method="_on_menu_pressed"]

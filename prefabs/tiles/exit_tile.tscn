@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cit4a6wswgbkq"]
+
+[ext_resource type="Script" path="res://scripts/tiles/exit_tile.gd" id="1_cvgkc"]
+[ext_resource type="Texture2D" uid="uid://bhqfrk0x2t2ur" path="res://assets/Tilemap/Map01.png" id="2_stter"]
+[ext_resource type="AudioStream" uid="uid://bpl8fp7xxdvaw" path="res://sfx/stairs/162482__kastenfrosch__achievement.mp3" id="2_wrmxl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udg71"]
+size = Vector2(16, 16)
+
+[node name="exit_tile" type="Area2D"]
+script = ExtResource("1_cvgkc")
+sfx_exit = Array[AudioStream]([ExtResource("2_wrmxl")])
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_stter")
+region_enabled = true
+region_rect = Rect2(0, 96, 32, 32)
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_udg71")
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_wrmxl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

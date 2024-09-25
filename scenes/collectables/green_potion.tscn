@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://buw5lwrl0m6pl"]
+
+[ext_resource type="PackedScene" uid="uid://bkuboyis638r8" path="res://scenes/collectables/collectable.tscn" id="1_5jjpt"]
+[ext_resource type="Texture2D" uid="uid://ceuua10sgq6qc" path="res://assets/Items/green_potion.png" id="2_suhah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uw3ib"]
+resource_local_to_scene = true
+size = Vector2(14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la1h7"]
+atlas = ExtResource("2_suhah")
+region = Rect2(0, 0, 24, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7v1ta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la1h7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="green_potion" instance=ExtResource("1_5jjpt")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_uw3ib")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_7v1ta")

@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://c552fmc5d0m52"]
+
+[ext_resource type="Script" path="res://scripts/tiles/box_tile.gd" id="1_gcbdb"]
+[ext_resource type="Texture2D" uid="uid://4gvjdptgwfys" path="res://assets/Props/barrel2/barrel - color scheme 2 - 64.png" id="2_ye5n5"]
+[ext_resource type="Texture2D" uid="uid://cjlx83vwk8otf" path="res://assets/Props/barrel2/barrel - color scheme 2 - broken - 11.png" id="3_j5d08"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm36p"]
+atlas = ExtResource("2_ye5n5")
+region = Rect2(0, 15, 32, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8301"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm36p")
+}],
+"loop": true,
+"name": &"01",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbqps"]
+atlas = ExtResource("3_j5d08")
+region = Rect2(0, 15, 32, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aauto"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqps")
+}],
+"loop": true,
+"name": &"01",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpxr6"]
+size = Vector2(25.7143, 35)
+
+[node name="box_tile2" type="StaticBody2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_gcbdb")
+
+[node name="sprite_idle" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_a8301")
+animation = &"01"
+
+[node name="sprite_damage" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_aauto")
+animation = &"01"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-4.8961e-07, 0.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_qpxr6")
+
+[node name="damage_numbers_origin" type="Node2D" parent="."]
+position = Vector2(0, -19)

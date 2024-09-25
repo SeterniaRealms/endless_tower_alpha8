@@ -1,0 +1,232 @@
+[gd_scene load_steps=18 format=3 uid="uid://cxtfb8x0j64nb"]
+
+[ext_resource type="Script" path="res://scripts/create_account.gd" id="1_huo40"]
+[ext_resource type="Texture2D" uid="uid://b2wloxfjpu3co" path="res://UI/Logo/Logo_game.png" id="2_8hxoa"]
+[ext_resource type="Texture2D" uid="uid://d17l1pu5mkdak" path="res://UI/CREATE ACCOUNT_SCREEN.png" id="2_qqcc3"]
+[ext_resource type="Texture2D" uid="uid://bxjusl8ah5g8q" path="res://UI/Creating Account/Logo Horizontal White.png" id="3_63a7h"]
+[ext_resource type="Texture2D" uid="uid://omketxysbpg" path="res://UI/Button/Button_1_hover.png" id="4_lnanl"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="4_ntgcl"]
+[ext_resource type="FontFile" uid="uid://dnk1i8nwchfk5" path="res://UI/Fonts/SPECTRAL-REGULAR.TTF" id="4_uhb5g"]
+[ext_resource type="Texture2D" uid="uid://bscuaq4wphq7f" path="res://UI/Button/Button_1.png" id="5_4l4k4"]
+[ext_resource type="Script" path="res://scripts/account_panel.gd" id="5_x22vk"]
+[ext_resource type="Texture2D" uid="uid://brru81ppg3rtr" path="res://UI/Background/decoration2_bg.png" id="9_fr8o2"]
+[ext_resource type="AudioStream" uid="uid://dk38cpjwqfkty" path="res://sfx/Buttons/play_game/617763__cogfirestudios__achievement-sylized-fx-3.wav" id="9_u8exb"]
+[ext_resource type="PackedScene" uid="uid://bovasqadpaxv3" path="res://scenes/sound_button.tscn" id="9_yllbg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15due"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 0.745098)
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ky6da"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+bg_color = Color(0.0588235, 0.0509804, 0.0745098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1b41"]
+content_margin_left = 10.0
+bg_color = Color(0.0313726, 0.0313726, 0.0313726, 0.588235)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvcou"]
+texture = ExtResource("4_lnanl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hmw37"]
+texture = ExtResource("5_4l4k4")
+
+[node name="CreateAccount" type="CanvasLayer"]
+script = ExtResource("1_huo40")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qqcc3")
+expand_mode = 3
+
+[node name="Panel1" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -180.0
+offset_right = 209.0
+offset_bottom = 180.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15due")
+
+[node name="EndlessTower_logo" type="TextureRect" parent="Control/Panel1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.312
+anchor_right = 0.5
+anchor_bottom = 0.312
+offset_left = -77.5
+offset_top = -48.32
+offset_right = 692.5
+offset_bottom = 431.68
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.201577, 0.201577)
+texture = ExtResource("2_8hxoa")
+
+[node name="SeterniaRealms_logo" type="TextureRect" parent="Control/Panel1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.7072
+offset_top = -155.0
+offset_right = 34.7072
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_63a7h")
+expand_mode = 3
+
+[node name="Wallet" type="VBoxContainer" parent="Control/Panel1"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 2
+layout_mode = 2
+offset_left = 39.5
+offset_top = 186.0
+offset_right = 169.5
+offset_bottom = 227.0
+
+[node name="WalletAddress" type="Label" parent="Control/Panel1/Wallet"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_uhb5g")
+theme_override_font_sizes/font_size = 8
+text = "Wallet Address"
+
+[node name="AccountAddress" type="Label" parent="Control/Panel1/Wallet"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_uhb5g")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_ky6da")
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="AccountPanel" type="VBoxContainer" parent="Control/Panel1"]
+clip_contents = true
+custom_minimum_size = Vector2(130, 90)
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 59.0
+offset_right = 65.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+script = ExtResource("5_x22vk")
+
+[node name="SetUsername" type="VBoxContainer" parent="Control/Panel1/AccountPanel"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Set username" type="Label" parent="Control/Panel1/AccountPanel/SetUsername"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_uhb5g")
+theme_override_font_sizes/font_size = 8
+text = "Set Username"
+
+[node name="_username" type="LineEdit" parent="Control/Panel1/AccountPanel/SetUsername"]
+custom_minimum_size = Vector2(130, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_uhb5g")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxFlat_a1b41")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a1b41")
+placeholder_text = "Username"
+
+[node name="create_account" type="Button" parent="Control/Panel1/AccountPanel"]
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ntgcl")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxTexture_xvcou")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xvcou")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hmw37")
+text = "Create Account"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel1"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 267.0
+offset_right = 606.0
+offset_bottom = 756.0
+scale = Vector2(0.179952, 0.179952)
+texture = ExtResource("9_fr8o2")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Panel1"]
+layout_mode = 0
+offset_left = 3.99999
+offset_top = 5.0
+offset_right = 492.0
+offset_bottom = 494.0
+scale = Vector2(0.179952, 0.179952)
+texture = ExtResource("9_fr8o2")
+flip_h = true
+flip_v = true
+
+[node name="sound_button" parent="Control" instance=ExtResource("9_yllbg")]
+offset_left = 611.0
+offset_top = 335.0
+offset_right = 626.0
+offset_bottom = 349.0
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, 0)
+stream = ExtResource("9_u8exb")
+
+[connection signal="pressed" from="Control/Panel1/AccountPanel/create_account" to="." method="_on_create_account_pressed"]

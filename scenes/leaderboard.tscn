@@ -1,0 +1,398 @@
+[gd_scene load_steps=11 format=3 uid="uid://ck8k57b8v41ji"]
+
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="1_qf5om"]
+[ext_resource type="Script" path="res://scripts/leaderboard.gd" id="1_rpi5o"]
+[ext_resource type="Texture2D" uid="uid://bx4eq4ocenm24" path="res://UI/Background/ENDLESS TOWER - BG GAME OVER.png" id="1_sfbmi"]
+[ext_resource type="FontFile" uid="uid://dnk1i8nwchfk5" path="res://UI/Fonts/SPECTRAL-REGULAR.TTF" id="1_ts8mw"]
+[ext_resource type="Texture2D" uid="uid://bscuaq4wphq7f" path="res://UI/Button/Button_1.png" id="4_l20fv"]
+[ext_resource type="Texture2D" uid="uid://omketxysbpg" path="res://UI/Button/Button_1_hover.png" id="5_qsgsd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gxms"]
+texture = ExtResource("5_qsgsd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acbx3"]
+texture = ExtResource("4_l20fv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0ikh"]
+bg_color = Color(0.0588235, 0.0588235, 0.0666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e30lp"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="leaderboard" type="CanvasLayer" node_paths=PackedStringArray("_ranking_container")]
+script = ExtResource("1_rpi5o")
+_ranking_container = NodePath("Control/ranking_container")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.0
+offset_top = -349.0
+offset_right = 319.0
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sfbmi")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="button_menu" type="Button" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.852
+anchor_right = 0.5
+anchor_bottom = 0.852
+offset_left = -52.0
+offset_top = -3.64001
+offset_right = 78.0
+offset_bottom = 26.36
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_3gxms")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3gxms")
+theme_override_styles/normal = SubResource("StyleBoxTexture_acbx3")
+action_mode = 0
+text = "Menu"
+
+[node name="ranking_container" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -144.0
+offset_right = 119.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="Control/ranking_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 30
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot_1" type="HBoxContainer" parent="Control/ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Control/ranking_container/slot_1"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+text = "1."
+
+[node name="name" type="Label" parent="Control/ranking_container/slot_1"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 10
+
+[node name="floor" type="Label" parent="Control/ranking_container/slot_1"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="slot_2" type="HBoxContainer" parent="Control/ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Control/ranking_container/slot_2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+text = "1."
+
+[node name="name" type="Label" parent="Control/ranking_container/slot_2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 10
+
+[node name="floor" type="Label" parent="Control/ranking_container/slot_2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="slot_3" type="HBoxContainer" parent="Control/ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Control/ranking_container/slot_3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+text = "1."
+
+[node name="name" type="Label" parent="Control/ranking_container/slot_3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 10
+
+[node name="floor" type="Label" parent="Control/ranking_container/slot_3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="slot_4" type="HBoxContainer" parent="Control/ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Control/ranking_container/slot_4"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+text = "1."
+
+[node name="name" type="Label" parent="Control/ranking_container/slot_4"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 10
+
+[node name="floor" type="Label" parent="Control/ranking_container/slot_4"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="slot_5" type="HBoxContainer" parent="Control/ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Control/ranking_container/slot_5"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+text = "1."
+
+[node name="name" type="Label" parent="Control/ranking_container/slot_5"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 10
+
+[node name="floor" type="Label" parent="Control/ranking_container/slot_5"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="slot_6" type="HBoxContainer" parent="Control/ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Control/ranking_container/slot_6"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+text = "1."
+
+[node name="name" type="Label" parent="Control/ranking_container/slot_6"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 10
+
+[node name="floor" type="Label" parent="Control/ranking_container/slot_6"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="slot_7" type="HBoxContainer" parent="Control/ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Control/ranking_container/slot_7"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+text = "1."
+
+[node name="name" type="Label" parent="Control/ranking_container/slot_7"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 10
+
+[node name="floor" type="Label" parent="Control/ranking_container/slot_7"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="slot_8" type="HBoxContainer" parent="Control/ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Control/ranking_container/slot_8"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+text = "1."
+
+[node name="name" type="Label" parent="Control/ranking_container/slot_8"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 10
+
+[node name="floor" type="Label" parent="Control/ranking_container/slot_8"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="slot_9" type="HBoxContainer" parent="Control/ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Control/ranking_container/slot_9"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+text = "1."
+
+[node name="name" type="Label" parent="Control/ranking_container/slot_9"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 10
+
+[node name="floor" type="Label" parent="Control/ranking_container/slot_9"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="slot_10" type="HBoxContainer" parent="Control/ranking_container"]
+layout_mode = 2
+
+[node name="position" type="Label" parent="Control/ranking_container/slot_10"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+text = "1."
+
+[node name="name" type="Label" parent="Control/ranking_container/slot_10"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 10
+
+[node name="floor" type="Label" parent="Control/ranking_container/slot_10"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 10
+vertical_alignment = 1
+
+[node name="load_progress" type="Label" parent="Control"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -11.5
+offset_right = 73.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ts8mw")
+theme_override_font_sizes/font_size = 12
+text = "Accessing server data..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="update_leaderboard" type="Button" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -15.0
+offset_right = 90.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("1_qf5om")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_b0ikh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e30lp")
+action_mode = 0
+text = "Update Leaderboard"
+
+[connection signal="pressed" from="Control/button_menu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="Control/update_leaderboard" to="." method="_on_update_leaderboard_pressed"]

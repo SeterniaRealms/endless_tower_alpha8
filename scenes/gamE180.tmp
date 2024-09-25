@@ -1,0 +1,211 @@
+[gd_scene load_steps=30 format=3 uid="uid://twayfaqv1vxw"]
+
+[ext_resource type="Script" path="res://scripts/manager/board_manager.gd" id="1_opc2r"]
+[ext_resource type="Script" path="res://scripts/manager/game_manager.gd" id="1_xo5q2"]
+[ext_resource type="PackedScene" uid="uid://ci5nsadpeny32" path="res://prefabs/tiles/floor_tile.tscn" id="2_r6m1i"]
+[ext_resource type="PackedScene" uid="uid://b3gs3h3mioe4c" path="res://prefabs/tiles/outer_wall_tile.tscn" id="3_ykfe2"]
+[ext_resource type="PackedScene" uid="uid://cquje3a3uk87r" path="res://prefabs/tiles/box_tile.tscn" id="4_pigwd"]
+[ext_resource type="PackedScene" uid="uid://bbh008ndwjjyb" path="res://prefabs/tiles/life_tile.tscn" id="5_kk7c4"]
+[ext_resource type="PackedScene" uid="uid://cit4a6wswgbkq" path="res://prefabs/tiles/exit_tile.tscn" id="6_lwoax"]
+[ext_resource type="PackedScene" uid="uid://b8lopnxjb6n03" path="res://prefabs/player.tscn" id="7_c2arf"]
+[ext_resource type="PackedScene" uid="uid://cgr1ebmkjf3tx" path="res://prefabs/tiles/enemy_tile.tscn" id="7_eicph"]
+[ext_resource type="AudioStream" uid="uid://bm8ml4k5qpl7o" path="res://sfx/footstep_player/Footstep_1(1).wav" id="10_c13jm"]
+[ext_resource type="Script" path="res://scripts/manager/hud_manager.gd" id="10_ls7gq"]
+[ext_resource type="AudioStream" uid="uid://cjlr53ecqghny" path="res://sfx/footstep_player/Footstep_2.wav" id="11_ujg08"]
+[ext_resource type="AudioStream" uid="uid://tkl5sgg5ye6n" path="res://sfx/attack_player/695380__fmaudio__male-attack-grunt-3.wav" id="12_d1nmg"]
+[ext_resource type="Texture2D" uid="uid://dvs7b2jub1au6" path="res://UI/Icons/gold (1).png" id="12_s2bg0"]
+[ext_resource type="AudioStream" uid="uid://cg15cil3h23i1" path="res://sfx/attack_player/695379__fmaudio__male-attack-grunt-2.wav" id="13_1ans3"]
+[ext_resource type="AudioStream" uid="uid://dbh846d8h5hf6" path="res://sfx/attack_player/695378__fmaudio__male-attack-grunt-1.wav" id="14_iqlvn"]
+[ext_resource type="AudioStream" uid="uid://ttd8ct4lige3" path="res://sfx/hurt_player/Male_hurt1.wav" id="15_3gxtx"]
+[ext_resource type="AudioStream" uid="uid://dlorulprcayti" path="res://sfx/hurt_player/Male_hurt2.wav" id="16_bmfuf"]
+[ext_resource type="AudioStream" uid="uid://dbx003pgxotfp" path="res://sfx/hurt_player/Male_hurt3.wav" id="17_m73qt"]
+[ext_resource type="AudioStream" uid="uid://cjb0jhwjforqf" path="res://sfx/hurt_player/Male_hurt4.wav" id="18_do0x3"]
+[ext_resource type="AudioStream" uid="uid://byax116t1ygna" path="res://sfx/die_player/695384__fmaudio__male-death-cry-1.wav" id="19_ba61k"]
+[ext_resource type="AudioStream" uid="uid://bka1gm258hbm" path="res://sfx/die_player/695385__fmaudio__male-death-cry-2.wav" id="20_cqbh7"]
+[ext_resource type="AudioStream" uid="uid://dj7fppos8yhp2" path="res://sfx/die_player/695386__fmaudio__male-death-cry-3.wav" id="21_k2swb"]
+[ext_resource type="AudioStream" uid="uid://bjvccjb4l1va7" path="res://sfx/die_player/695389__fmaudio__male-death-cry-6.wav" id="22_ha3oc"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="24_6dmjf"]
+[ext_resource type="Texture2D" uid="uid://ckgw48k301jl2" path="res://UI/Icons/heart.png" id="24_dnxni"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdemv"]
+bg_color = Color(0.14902, 0.0901961, 0.0313726, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.921569, 0.54902, 0.164706, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vg157"]
+bg_color = Color(0.211426, 0.0868275, 3.60981e-08, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.82537, 0.466678, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vx73h"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="game_manager" type="Node2D"]
+script = ExtResource("1_xo5q2")
+
+[node name="board_manager" type="Node2D" parent="."]
+position = Vector2(48, 49)
+script = ExtResource("1_opc2r")
+floor_tile = ExtResource("2_r6m1i")
+outer_wall_tile = ExtResource("3_ykfe2")
+box_tile = ExtResource("4_pigwd")
+life_tile = ExtResource("5_kk7c4")
+exit_tile = ExtResource("6_lwoax")
+enemy_tile = ExtResource("7_eicph")
+
+[node name="player" parent="." instance=ExtResource("7_c2arf")]
+position = Vector2(48, 265)
+sfx_footstep = [ExtResource("10_c13jm"), ExtResource("11_ujg08")]
+sfx_attack = [ExtResource("12_d1nmg"), ExtResource("13_1ans3"), ExtResource("14_iqlvn")]
+sfx_damage = [ExtResource("15_3gxtx"), ExtResource("16_bmfuf"), ExtResource("17_m73qt"), ExtResource("18_do0x3")]
+sfx_die = [ExtResource("19_ba61k"), ExtResource("20_cqbh7"), ExtResource("21_k2swb"), ExtResource("22_ha3oc")]
+
+[node name="canvas_layer" type="CanvasLayer" parent="."]
+
+[node name="hud_manager" type="Control" parent="canvas_layer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_ls7gq")
+
+[node name="txt_health" type="Label" parent="canvas_layer/hud_manager"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -312.0
+offset_right = -69.0
+offset_bottom = -294.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("24_6dmjf")
+theme_override_font_sizes/font_size = 11
+text = "Health: 100"
+vertical_alignment = 1
+
+[node name="player_health" type="Panel" parent="canvas_layer/hud_manager"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -156.0
+offset_top = -315.0
+offset_right = -64.0
+offset_bottom = -293.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="Avatar" type="TextureRect" parent="canvas_layer/hud_manager/player_health"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -7.0
+offset_right = 21.0
+offset_bottom = 7.0
+grow_vertical = 2
+texture = ExtResource("24_dnxni")
+expand_mode = 1
+
+[node name="player_info_box" type="Panel" parent="canvas_layer/hud_manager"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 150.0
+offset_bottom = 63.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vg157")
+
+[node name="avatar_frame" type="Panel" parent="canvas_layer/hud_manager/player_info_box"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 48.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vx73h")
+
+[node name="Avatar" type="TextureRect" parent="canvas_layer/hud_manager/player_info_box/avatar_frame"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 38.0
+offset_bottom = 38.0
+expand_mode = 1
+
+[node name="Label" type="Label" parent="canvas_layer/hud_manager/player_info_box"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 56.0
+offset_top = 9.0
+offset_right = 107.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 12
+text = "Kaleve"
+
+[node name="coin_box" type="Panel" parent="canvas_layer/hud_manager"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -283.0
+offset_right = -22.0
+offset_bottom = -266.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="Avatar" type="TextureRect" parent="canvas_layer/hud_manager/coin_box"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -8.0
+offset_right = 21.0
+offset_bottom = 8.0
+grow_vertical = 2
+texture = ExtResource("12_s2bg0")
+expand_mode = 1

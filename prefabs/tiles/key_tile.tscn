@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://w0s541fwpisx"]
+
+[ext_resource type="Script" path="res://scripts/tiles/key_tile.gd" id="1_81seu"]
+[ext_resource type="Texture2D" uid="uid://cbcqh6y5rgsqw" path="res://assets/Items/key_1.png" id="1_qox2b"]
+[ext_resource type="AudioStream" uid="uid://g481jvsefq5o" path="res://sfx/pickup/411179__silverillusionist__pick-up-key.wav" id="4_sb233"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5hv7"]
+atlas = ExtResource("1_qox2b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mwmv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5hv7")
+}],
+"loop": true,
+"name": &"key1",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qony5"]
+size = Vector2(16, 15)
+
+[node name="key_tile" type="Area2D"]
+script = ExtResource("1_81seu")
+
+[node name="animatedsprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_6mwmv")
+animation = &"key1"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qony5")
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_sb233")
+volume_db = 10.0

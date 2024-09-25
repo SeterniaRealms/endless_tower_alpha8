@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://qxi3t0bw4uwr"]
+
+[ext_resource type="Script" path="res://scripts/tiles/bandage.gd" id="1_510pn"]
+[ext_resource type="Texture2D" uid="uid://b83lnvfdvxo4c" path="res://assets/Items/bandage/bandage.png" id="1_oc7bx"]
+[ext_resource type="AudioStream" uid="uid://cbt3m8lbeio2g" path="res://sfx/pickup/411178__silverillusionist__pick-up-item-2.wav" id="2_irbqn"]
+[ext_resource type="Resource" uid="uid://bhp2ffpidn13f" path="res://scripts/Inventory/Items/bandage.tres" id="3_86hlb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci4pd"]
+atlas = ExtResource("1_oc7bx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_weqrx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci4pd")
+}],
+"loop": true,
+"name": &"bandage",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqatn"]
+size = Vector2(14, 15)
+
+[node name="bandage" type="Area2D"]
+script = ExtResource("1_510pn")
+sfx_collect = Array[AudioStream]([ExtResource("2_irbqn")])
+itemRes = ExtResource("3_86hlb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_weqrx")
+animation = &"bandage"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_wqatn")
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="."]

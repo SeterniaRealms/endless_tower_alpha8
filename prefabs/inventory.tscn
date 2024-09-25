@@ -1,0 +1,294 @@
+[gd_scene load_steps=20 format=3 uid="uid://cg7nylkqci1jv"]
+
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_b0cx4"]
+[ext_resource type="PackedScene" uid="uid://b7dygtg10kpg8" path="res://prefabs/slot.tscn" id="2_cpdtk"]
+[ext_resource type="PackedScene" uid="uid://bbh008ndwjjyb" path="res://prefabs/tiles/life_tile.tscn" id="2_y6pif"]
+[ext_resource type="PackedScene" uid="uid://br012athen28l" path="res://prefabs/tiles/meat_tile.tscn" id="3_wt2jp"]
+[ext_resource type="PackedScene" uid="uid://bfufm07lf2ymc" path="res://prefabs/tiles/random_pot.tscn" id="4_bp4kr"]
+[ext_resource type="PackedScene" uid="uid://w0s541fwpisx" path="res://prefabs/tiles/key_tile.tscn" id="4_i3tug"]
+[ext_resource type="Texture2D" uid="uid://jgiawlmayh8k" path="res://UI/UI_inventory/Inventory background.png" id="5_8h1em"]
+[ext_resource type="PackedScene" uid="uid://cd63u4lg6hq41" path="res://prefabs/tiles/purple_tile.tscn" id="5_htyhl"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="6_ec6bq"]
+[ext_resource type="PackedScene" uid="uid://qxi3t0bw4uwr" path="res://prefabs/tiles/bandage.tscn" id="6_qdt35"]
+[ext_resource type="PackedScene" uid="uid://8ioaixrh8pfp" path="res://prefabs/slot_chest.tscn" id="10_eeyke"]
+[ext_resource type="PackedScene" uid="uid://dn8mlruvfwpvy" path="res://prefabs/slot_head.tscn" id="10_u4j3d"]
+[ext_resource type="PackedScene" uid="uid://b0tyjqgxb31b3" path="res://prefabs/slot_weapon.tscn" id="11_l4n0q"]
+[ext_resource type="PackedScene" uid="uid://cu6lady5vekb0" path="res://prefabs/slot_ring.tscn" id="12_rqill"]
+[ext_resource type="PackedScene" uid="uid://uybydiqmac5k" path="res://prefabs/slot_necklace.tscn" id="14_jjca6"]
+[ext_resource type="PackedScene" uid="uid://ccgidgspgwnjy" path="res://prefabs/slot_gloves.tscn" id="15_km2qs"]
+[ext_resource type="PackedScene" uid="uid://4pmfwjnhdoel" path="res://prefabs/slot_belt.tscn" id="15_x4kb4"]
+[ext_resource type="PackedScene" uid="uid://dk2c2tvkcltdx" path="res://prefabs/slot_shoes.tscn" id="17_trfvw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sv4bs"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+
+[node name="inventory" type="Control"]
+custom_minimum_size = Vector2(140, 95)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -497.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b0cx4")
+box_items_tiles = Array[PackedScene]([ExtResource("2_y6pif"), ExtResource("3_wt2jp"), ExtResource("4_bp4kr"), ExtResource("6_qdt35")])
+enemy_items_tiles = Array[PackedScene]([ExtResource("3_wt2jp"), ExtResource("2_y6pif"), ExtResource("4_bp4kr"), ExtResource("5_htyhl"), ExtResource("6_qdt35")])
+chest_items_tiles = Array[PackedScene]([ExtResource("2_y6pif"), ExtResource("3_wt2jp"), ExtResource("4_bp4kr"), ExtResource("5_htyhl")])
+key_items_tiles = Array[PackedScene]([ExtResource("4_i3tug")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 563.0
+offset_bottom = 395.0
+scale = Vector2(0.25, 0.24831)
+texture = ExtResource("5_8h1em")
+
+[node name="Inventory_title" type="Panel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -499.163
+offset_right = 127.5
+offset_bottom = -435.163
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sv4bs")
+
+[node name="Label" type="Label" parent="TextureRect/Inventory_title"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -32.0
+offset_right = 127.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_ec6bq")
+theme_override_font_sizes/font_size = 24
+text = "INVENTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot_head" parent="TextureRect" instance=ExtResource("10_u4j3d")]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 72.49
+offset_right = 262.0
+offset_bottom = 95.49
+scale = Vector2(4.38113, 4.38113)
+
+[node name="slot_chest" parent="TextureRect" instance=ExtResource("10_eeyke")]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 185.252
+offset_right = 262.0
+offset_bottom = 207.252
+scale = Vector2(4.38085, 4.38085)
+
+[node name="slot_weapon" parent="TextureRect" instance=ExtResource("11_l4n0q")]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 185.252
+offset_right = 378.0
+offset_bottom = 207.252
+scale = Vector2(4.38051, 4.38051)
+
+[node name="slot_necklace" parent="TextureRect" instance=ExtResource("14_jjca6")]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 185.252
+offset_right = 146.0
+offset_bottom = 207.252
+scale = Vector2(4.37996, 4.37996)
+
+[node name="slot_ring" parent="TextureRect" instance=ExtResource("12_rqill")]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 298.015
+offset_right = 146.0
+offset_bottom = 320.015
+scale = Vector2(4.38212, 4.38212)
+
+[node name="slot_belt" parent="TextureRect" instance=ExtResource("15_x4kb4")]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 298.015
+offset_right = 262.0
+offset_bottom = 320.015
+scale = Vector2(4.38268, 4.38268)
+
+[node name="slot_gloves" parent="TextureRect" instance=ExtResource("15_km2qs")]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 298.015
+offset_right = 378.0
+offset_bottom = 320.015
+scale = Vector2(4.37807, 4.37807)
+
+[node name="slot_shoes" parent="TextureRect" instance=ExtResource("17_trfvw")]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 410.777
+offset_right = 262.0
+offset_bottom = 432.777
+scale = Vector2(4.37978, 4.37978)
+
+[node name="Head" parent="TextureRect" instance=ExtResource("2_cpdtk")]
+visible = false
+layout_mode = 0
+offset_left = 240.0
+offset_top = 72.49
+offset_right = 262.0
+offset_bottom = 93.49
+scale = Vector2(4.38138, 4.38138)
+
+[node name="Chest" parent="TextureRect" instance=ExtResource("2_cpdtk")]
+visible = false
+layout_mode = 0
+offset_left = 240.0
+offset_top = 185.252
+offset_right = 262.0
+offset_bottom = 206.252
+scale = Vector2(4.38138, 4.38138)
+
+[node name="Belt" parent="TextureRect" instance=ExtResource("2_cpdtk")]
+visible = false
+layout_mode = 0
+offset_left = 240.0
+offset_top = 298.015
+offset_right = 262.0
+offset_bottom = 319.015
+scale = Vector2(4.38138, 4.38138)
+
+[node name="Shoes" parent="TextureRect" instance=ExtResource("2_cpdtk")]
+visible = false
+layout_mode = 0
+offset_left = 240.0
+offset_top = 410.777
+offset_right = 262.0
+offset_bottom = 431.777
+scale = Vector2(4.38138, 4.38138)
+
+[node name="Weapon" parent="TextureRect" instance=ExtResource("2_cpdtk")]
+visible = false
+layout_mode = 0
+offset_left = 356.0
+offset_top = 185.252
+offset_right = 378.0
+offset_bottom = 206.252
+scale = Vector2(4.38138, 4.38138)
+
+[node name="Hands" parent="TextureRect" instance=ExtResource("2_cpdtk")]
+visible = false
+layout_mode = 0
+offset_left = 356.0
+offset_top = 298.015
+offset_right = 378.0
+offset_bottom = 319.015
+scale = Vector2(4.38138, 4.38138)
+
+[node name="Necklace" parent="TextureRect" instance=ExtResource("2_cpdtk")]
+visible = false
+layout_mode = 0
+offset_left = 124.0
+offset_top = 185.252
+offset_right = 146.0
+offset_bottom = 206.252
+scale = Vector2(4.38138, 4.38138)
+
+[node name="Ring" parent="TextureRect" instance=ExtResource("2_cpdtk")]
+visible = false
+layout_mode = 0
+offset_left = 124.0
+offset_top = 298.015
+offset_right = 146.0
+offset_bottom = 319.015
+scale = Vector2(4.38138, 4.38138)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = 123.05
+offset_right = 35.0
+offset_bottom = 146.05
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.38, 4.38)
+pivot_offset = Vector2(34.7032, 11.0335)
+
+[node name="Panel" parent="TextureRect/HBoxContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel2" parent="TextureRect/HBoxContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel3" parent="TextureRect/HBoxContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.5
+offset_top = 206.628
+offset_right = -139.5
+offset_bottom = 254.628
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.38034, 4.38034)
+columns = 5
+
+[node name="Panel4" parent="TextureRect/GridContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel5" parent="TextureRect/GridContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel6" parent="TextureRect/GridContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel7" parent="TextureRect/GridContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel8" parent="TextureRect/GridContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel9" parent="TextureRect/GridContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel10" parent="TextureRect/GridContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel11" parent="TextureRect/GridContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel12" parent="TextureRect/GridContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2
+
+[node name="Panel13" parent="TextureRect/GridContainer" instance=ExtResource("2_cpdtk")]
+layout_mode = 2

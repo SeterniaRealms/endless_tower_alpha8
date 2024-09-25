@@ -1,0 +1,107 @@
+[gd_scene load_steps=23 format=3 uid="uid://bt7f5dmly2h84"]
+
+[ext_resource type="Script" path="res://scripts/tiles/crystal_tile.gd" id="1_8sgkv"]
+[ext_resource type="AudioStream" uid="uid://g481jvsefq5o" path="res://sfx/pickup/411179__silverillusionist__pick-up-key.wav" id="2_dngs2"]
+[ext_resource type="Resource" uid="uid://bo81up2pfiu8r" path="res://scripts/Inventory/Items/crystal.tres" id="3_6o3ry"]
+[ext_resource type="Texture2D" uid="uid://csfagqmp4m4ct" path="res://assets/Items/crystal/only_rune1.png" id="4_dwj0x"]
+[ext_resource type="Texture2D" uid="uid://b2g4bocb57eb8" path="res://assets/Items/crystal/only_rune2.png" id="5_7wwhv"]
+[ext_resource type="Texture2D" uid="uid://dfrw054hwyape" path="res://assets/Items/crystal/only_rune3.png" id="6_vt7xq"]
+[ext_resource type="Texture2D" uid="uid://cvmsi3qlv7ea3" path="res://assets/Items/crystal/only_rune4.png" id="7_ksv02"]
+[ext_resource type="Texture2D" uid="uid://482sxd4bfuun" path="res://assets/Items/crystal/only_rune5.png" id="8_lx47w"]
+[ext_resource type="Texture2D" uid="uid://cbk5ghv4hokog" path="res://assets/Items/crystal/only_rune6.png" id="9_sgrbs"]
+[ext_resource type="Texture2D" uid="uid://dogfml8csbboj" path="res://assets/Items/crystal/only_rune7.png" id="10_vq4xj"]
+[ext_resource type="Texture2D" uid="uid://x40wc7c6lwim" path="res://assets/Items/crystal/only_rune8.png" id="11_bagkj"]
+[ext_resource type="PackedScene" uid="uid://c3tb6s5cgnnh3" path="res://addons/SolanaSDK/Scripts/ThirdPartyTools/Endless Tower SOAR/EndlessTowerProgram.tscn" id="12_qhjq3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx768"]
+atlas = ExtResource("4_dwj0x")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcle6"]
+atlas = ExtResource("5_7wwhv")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypvj4"]
+atlas = ExtResource("6_vt7xq")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o52sq"]
+atlas = ExtResource("7_ksv02")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dss7m"]
+atlas = ExtResource("8_lx47w")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na3i4"]
+atlas = ExtResource("9_sgrbs")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vpaj"]
+atlas = ExtResource("10_vq4xj")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_excgv"]
+atlas = ExtResource("11_bagkj")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mwmv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx768")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcle6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypvj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o52sq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dss7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na3i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vpaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_excgv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qony5"]
+size = Vector2(16, 15)
+
+[node name="crystal_tile" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_8sgkv")
+sfx_collect = Array[AudioStream]([ExtResource("2_dngs2")])
+itemRes = ExtResource("3_6o3ry")
+game_authority_path = "res://wallet.json"
+
+[node name="animatedsprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_6mwmv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.903144
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qony5")
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_dngs2")
+volume_db = 10.0
+
+[node name="EndlessTowerProgram" parent="." instance=ExtResource("12_qhjq3")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

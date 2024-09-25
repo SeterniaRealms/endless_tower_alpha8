@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Purple_Pot" load_steps=3 format=3 uid="uid://iec28oahpmed"]
+
+[ext_resource type="Script" path="res://scripts/Inventory/purple_potion_item.gd" id="1_nguud"]
+[ext_resource type="Texture2D" uid="uid://cc0jj1yibavax" path="res://assets/Items/purple_potion/Icon15.png" id="2_cytr6"]
+
+[resource]
+script = ExtResource("1_nguud")
+shield_turns = 5
+name = "Purple Potion"
+info = "Gain Shield for 10 turns."
+rarity = "Uncommon"
+texture = ExtResource("2_cytr6")
+maxAmountPrStack = 5

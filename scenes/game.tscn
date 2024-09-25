@@ -1,0 +1,389 @@
+[gd_scene load_steps=46 format=3 uid="uid://twayfaqv1vxw"]
+
+[ext_resource type="Script" path="res://scripts/manager/board_manager.gd" id="1_opc2r"]
+[ext_resource type="Script" path="res://scripts/manager/game_manager.gd" id="1_xo5q2"]
+[ext_resource type="PackedScene" uid="uid://cquje3a3uk87r" path="res://prefabs/tiles/box_tile.tscn" id="3_p5qg5"]
+[ext_resource type="PackedScene" uid="uid://c7pwr4bxdmxg5" path="res://scenes/Rooms/dungeon_map0.tscn" id="4_rbruy"]
+[ext_resource type="PackedScene" uid="uid://bm35gkisl1mva" path="res://prefabs/tiles/spike_tile.tscn" id="4_sh47s"]
+[ext_resource type="PackedScene" uid="uid://bbh008ndwjjyb" path="res://prefabs/tiles/life_tile.tscn" id="5_yp44c"]
+[ext_resource type="PackedScene" uid="uid://br012athen28l" path="res://prefabs/tiles/meat_tile.tscn" id="6_t66km"]
+[ext_resource type="PackedScene" uid="uid://b8lopnxjb6n03" path="res://prefabs/player.tscn" id="7_c2arf"]
+[ext_resource type="PackedScene" uid="uid://cit4a6wswgbkq" path="res://prefabs/tiles/exit_tile.tscn" id="7_j4uns"]
+[ext_resource type="PackedScene" uid="uid://cgr1ebmkjf3tx" path="res://prefabs/tiles/enemy_tile.tscn" id="8_f1530"]
+[ext_resource type="PackedScene" uid="uid://becr5jf0ptc4c" path="res://prefabs/tiles/chest_tile.tscn" id="9_8e2wn"]
+[ext_resource type="Script" path="res://scripts/manager/hud_manager.gd" id="10_ls7gq"]
+[ext_resource type="AudioStream" uid="uid://bv2iggwuofhor" path="res://sfx/music/591037__kbrecordzz__dungeon-ambience-piano.mp3" id="10_o6hvk"]
+[ext_resource type="PackedScene" uid="uid://b3v0efmq68ilk" path="res://scenes/Rooms/dungeon_map2.tscn" id="11_qtyja"]
+[ext_resource type="PackedScene" uid="uid://bymeas07neaek" path="res://scenes/Rooms/dungeon_map3.tscn" id="12_btbhb"]
+[ext_resource type="AudioStream" uid="uid://tkl5sgg5ye6n" path="res://sfx/attack_player/695380__fmaudio__male-attack-grunt-3.wav" id="12_d1nmg"]
+[ext_resource type="AudioStream" uid="uid://cg15cil3h23i1" path="res://sfx/attack_player/695379__fmaudio__male-attack-grunt-2.wav" id="13_1ans3"]
+[ext_resource type="AudioStream" uid="uid://dbh846d8h5hf6" path="res://sfx/attack_player/695378__fmaudio__male-attack-grunt-1.wav" id="14_iqlvn"]
+[ext_resource type="PackedScene" uid="uid://o1akk3h5cwvs" path="res://scenes/Rooms/dungeon_map4.tscn" id="15_mpwkp"]
+[ext_resource type="AudioStream" uid="uid://byax116t1ygna" path="res://sfx/die_player/695384__fmaudio__male-death-cry-1.wav" id="19_ba61k"]
+[ext_resource type="AudioStream" uid="uid://bka1gm258hbm" path="res://sfx/die_player/695385__fmaudio__male-death-cry-2.wav" id="20_cqbh7"]
+[ext_resource type="AudioStream" uid="uid://dj7fppos8yhp2" path="res://sfx/die_player/695386__fmaudio__male-death-cry-3.wav" id="21_k2swb"]
+[ext_resource type="AudioStream" uid="uid://bjvccjb4l1va7" path="res://sfx/die_player/695389__fmaudio__male-death-cry-6.wav" id="22_ha3oc"]
+[ext_resource type="Resource" uid="uid://o22j6waubjt0" path="res://scripts/NFT Collection/seternia_pass_sonic.tres" id="22_w05tb"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="24_6dmjf"]
+[ext_resource type="Texture2D" uid="uid://t3csfq7d7beh" path="res://UI/Icons/floor.png" id="28_xw5aw"]
+[ext_resource type="Texture2D" uid="uid://ckfvhrei8shlb" path="res://assets/Tilemap/Solana_logo.png" id="29_4oowr"]
+[ext_resource type="Script" path="res://scenes/health_bar.gd" id="29_e38i1"]
+[ext_resource type="Texture2D" uid="uid://dogfml8csbboj" path="res://assets/Items/crystal/only_rune7.png" id="29_yuxaw"]
+[ext_resource type="Texture2D" uid="uid://b4vl7fwyfmvx8" path="res://assets/Tilemap/Seternia_logo.png" id="30_ev2aj"]
+[ext_resource type="PackedScene" uid="uid://bovasqadpaxv3" path="res://scenes/sound_button.tscn" id="32_5xr6d"]
+[ext_resource type="PackedScene" uid="uid://bh876p6a6uf4f" path="res://scenes/pause_menu.tscn" id="32_bu5hn"]
+[ext_resource type="Texture2D" uid="uid://d0oqhfmf65j15" path="res://UI/Icons/Envolop 1.png" id="34_4opm7"]
+[ext_resource type="PackedScene" uid="uid://cyh1v36ha72j5" path="res://UI/fog_effect.tscn" id="34_u6dp3"]
+[ext_resource type="PackedScene" uid="uid://cg7nylkqci1jv" path="res://prefabs/inventory.tscn" id="34_yta0x"]
+[ext_resource type="PackedScene" uid="uid://3aqgjsno2ywi" path="res://scenes/Status/bleeding_status.tscn" id="35_mdijk"]
+[ext_resource type="PackedScene" uid="uid://bomgey52u47ya" path="res://scenes/menu_button.tscn" id="36_jkvil"]
+[ext_resource type="PackedScene" uid="uid://uhkekkxytdfv" path="res://scenes/transition_screen.tscn" id="36_pvmgw"]
+[ext_resource type="PackedScene" uid="uid://b0tdf1hyb54ha" path="res://scenes/hotbar.tscn" id="39_6mlq5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdemv"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jntcd"]
+bg_color = Color(0.858824, 0.0392157, 0.0745098, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23bgy"]
+atlas = ExtResource("29_4oowr")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6yfg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23bgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kggw"]
+atlas = ExtResource("30_ev2aj")
+region = Rect2(0, 0, 12, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0r4k7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kggw")
+}],
+"loop": true,
+"name": &"seternia_logo",
+"speed": 5.0
+}]
+
+[node name="game_manager" type="Node2D"]
+script = ExtResource("1_xo5q2")
+metadata/_edit_horizontal_guides_ = [20.0, 27.0, 5.0, 17.0, 11.0, 349.0]
+
+[node name="board_manager" type="Node2D" parent="."]
+script = ExtResource("1_opc2r")
+box_tile = ExtResource("3_p5qg5")
+spike_tile = ExtResource("4_sh47s")
+life_tile = ExtResource("5_yp44c")
+meat_tile = ExtResource("6_t66km")
+exit_tile = ExtResource("7_j4uns")
+enemy_tile = ExtResource("8_f1530")
+chest_tile = ExtResource("9_8e2wn")
+audio_background = ExtResource("10_o6hvk")
+player = ExtResource("7_c2arf")
+map_scenes = Array[PackedScene]([ExtResource("4_rbruy"), ExtResource("11_qtyja"), ExtResource("12_btbhb"), ExtResource("15_mpwkp")])
+
+[node name="player" parent="." instance=ExtResource("7_c2arf")]
+position = Vector2(48, 322)
+enemy_tile = ExtResource("8_f1530")
+sfx_attack = Array[AudioStream]([ExtResource("12_d1nmg"), ExtResource("13_1ans3"), ExtResource("14_iqlvn")])
+sfx_die = Array[AudioStream]([ExtResource("19_ba61k"), ExtResource("20_cqbh7"), ExtResource("21_k2swb"), ExtResource("22_ha3oc")])
+
+[node name="canvas_layer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="hud_manager" type="Control" parent="canvas_layer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_ls7gq")
+holder_collection = ExtResource("22_w05tb")
+
+[node name="txt_health" type="Label" parent="canvas_layer/hud_manager"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -38.0
+offset_right = 13.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.392157)
+theme_override_fonts/font = ExtResource("24_6dmjf")
+theme_override_font_sizes/font_size = 10
+text = "100"
+vertical_alignment = 1
+
+[node name="health_bar_ui" type="Panel" parent="canvas_layer/hud_manager"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -39.0
+offset_right = 51.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.945804, 0.700727)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="health_bar" type="ProgressBar" parent="canvas_layer/hud_manager/health_bar_ui" node_paths=PackedStringArray("player")]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 107.0
+offset_bottom = 42.0
+scale = Vector2(0.863648, 0.342951)
+theme_override_styles/fill = SubResource("StyleBoxFlat_jntcd")
+value = 5.0
+show_percentage = false
+script = ExtResource("29_e38i1")
+player = NodePath("../../../../player")
+
+[node name="floor" type="Panel" parent="canvas_layer/hud_manager"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -299.0
+offset_top = -339.0
+offset_right = -219.0
+offset_bottom = -317.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="txt_floor" type="Label" parent="canvas_layer/hud_manager/floor"]
+layout_mode = 0
+offset_left = 23.75
+offset_top = 2.5
+offset_right = 70.75
+offset_bottom = 23.5
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("24_6dmjf")
+theme_override_font_sizes/font_size = 13
+text = "Floor: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Avatar" type="TextureRect" parent="canvas_layer/hud_manager/floor"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -6.0
+offset_right = 21.0
+offset_bottom = 8.0
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("28_xw5aw")
+expand_mode = 1
+
+[node name="verified_ui" type="Panel" parent="canvas_layer/hud_manager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.0
+offset_top = -137.0
+offset_right = -219.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="verified" type="Label" parent="canvas_layer/hud_manager/verified_ui"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -12.0
+offset_top = -2.0
+offset_right = 26.0
+offset_bottom = 18.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("24_6dmjf")
+theme_override_font_sizes/font_size = 8
+text = "Pass"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="canvas_layer/hud_manager/verified_ui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_top = 0.5
+anchor_right = 0.063
+anchor_bottom = 0.5
+offset_left = 3.228
+offset_top = -5.5
+offset_right = 13.228
+offset_bottom = 4.5
+grow_vertical = 2
+texture = ExtResource("34_4opm7")
+expand_mode = 1
+
+[node name="crystal_count" type="Panel" parent="canvas_layer/hud_manager"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = -137.0
+offset_right = -267.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="crystal" type="Label" parent="canvas_layer/hud_manager/crystal_count"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.0
+offset_top = -2.0
+offset_right = 24.0
+offset_bottom = 18.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("24_6dmjf")
+theme_override_font_sizes/font_size = 8
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="canvas_layer/hud_manager/crystal_count"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_top = 0.5
+anchor_right = 0.063
+anchor_bottom = 0.5
+offset_left = 3.228
+offset_top = -7.5
+offset_right = 13.228
+offset_bottom = 11.25
+grow_vertical = 2
+scale = Vector2(0.759894, 0.759894)
+texture = ExtResource("29_yuxaw")
+expand_mode = 5
+
+[node name="gold" type="Panel" parent="canvas_layer/hud_manager"]
+visible = false
+layout_mode = 0
+offset_left = 21.0
+offset_top = 42.0
+offset_right = 85.0
+offset_bottom = 59.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="txt_gold" type="Label" parent="canvas_layer/hud_manager/gold"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_right = 51.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("24_6dmjf")
+theme_override_font_sizes/font_size = 12
+text = "9999"
+
+[node name="bleeding_status" parent="canvas_layer/hud_manager" instance=ExtResource("35_mdijk")]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 340.0
+offset_right = 314.0
+offset_bottom = 380.0
+
+[node name="pause_menu" parent="canvas_layer" instance=ExtResource("32_bu5hn")]
+z_index = 2
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="menu_button" parent="canvas_layer" instance=ExtResource("36_jkvil")]
+visible = false
+z_index = 2
+offset_left = 585.0
+offset_top = 335.0
+offset_right = -40.0
+offset_bottom = -11.0
+
+[node name="sound_button" parent="canvas_layer" instance=ExtResource("32_5xr6d")]
+offset_left = 609.0
+offset_top = 335.0
+offset_right = 624.0
+offset_bottom = 349.0
+
+[node name="inventory" parent="canvas_layer" instance=ExtResource("34_yta0x")]
+offset_left = 22.0
+offset_top = 73.0
+offset_right = -475.0
+offset_bottom = -53.0
+
+[node name="Hotbar" parent="canvas_layer" instance=ExtResource("39_6mlq5")]
+offset_left = 166.0
+offset_top = 321.0
+offset_right = 260.0
+offset_bottom = 353.0
+
+[node name="fog" parent="." instance=ExtResource("34_u6dp3")]
+
+[node name="transition_screen" parent="." instance=ExtResource("36_pvmgw")]
+
+[node name="solana_logo" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(299.75, 252)
+scale = Vector2(0.321428, 0.321428)
+sprite_frames = SubResource("SpriteFrames_a6yfg")
+
+[node name="seternia_logo" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(21, 139)
+scale = Vector2(0.333333, 0.333333)
+sprite_frames = SubResource("SpriteFrames_0r4k7")
+animation = &"seternia_logo"
+
+[node name="player_spawn" type="Marker2D" parent="."]
+position = Vector2(48, 322)

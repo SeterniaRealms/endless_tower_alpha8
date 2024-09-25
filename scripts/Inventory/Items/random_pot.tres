@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Random_Pot" load_steps=3 format=3 uid="uid://cah667mlxm38t"]
+
+[ext_resource type="Script" path="res://scripts/Inventory/random_pot_item.gd" id="1_f2jfb"]
+[ext_resource type="Texture2D" uid="uid://lfh2rvbe163l" path="res://assets/Items/random_potion/Icon16.png" id="2_lmh0f"]
+
+[resource]
+script = ExtResource("1_f2jfb")
+restore_hp = 4
+loose_hp = -4
+name = "Random Potion"
+info = "Random Effect"
+rarity = "Common"
+texture = ExtResource("2_lmh0f")
+maxAmountPrStack = 5
+attribute_type = ""
+attribute_value = 0

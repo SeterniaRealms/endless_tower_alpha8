@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3gs3h3mioe4c"]
+
+[ext_resource type="Texture2D" uid="uid://bhqfrk0x2t2ur" path="res://assets/Tilemap/Map01.png" id="1_mp8y1"]
+[ext_resource type="Script" path="res://scripts/tiles/outer_wall_tile.gd" id="1_osotq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x823n"]
+atlas = ExtResource("1_mp8y1")
+region = Rect2(192, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdc8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x823n")
+}],
+"loop": true,
+"name": &"01",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a28tj"]
+
+[node name="outer_wall_tile" type="StaticBody2D"]
+visible = false
+script = ExtResource("1_osotq")
+
+[node name="animated_sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_kdc8h")
+animation = &"01"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a28tj")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhto5uy7wh0su"]
+
+[ext_resource type="AudioStream" uid="uid://bv2iggwuofhor" path="res://sfx/music/591037__kbrecordzz__dungeon-ambience-piano.mp3" id="1_oqt8a"]
+[ext_resource type="Script" path="res://scripts/audio_background.gd" id="1_xtlrd"]
+
+[node name="audio_background" type="AudioStreamPlayer"]
+stream = ExtResource("1_oqt8a")
+volume_db = -15.0
+autoplay = true
+script = ExtResource("1_xtlrd")

@@ -1,0 +1,222 @@
+[gd_scene load_steps=14 format=3 uid="uid://i04ahyyq4hil"]
+
+[ext_resource type="Script" path="res://scripts/manager/main_manager.gd" id="1_xup0c"]
+[ext_resource type="Texture2D" uid="uid://cto7kbgcmsiq0" path="res://UI/Background/ENDLESS TOWER - BG.png" id="2_hjxys"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="3_6bae1"]
+[ext_resource type="Texture2D" uid="uid://b2wloxfjpu3co" path="res://UI/Logo/Logo_game.png" id="3_s8orn"]
+[ext_resource type="PackedScene" uid="uid://bovasqadpaxv3" path="res://scenes/sound_button.tscn" id="4_3j224"]
+[ext_resource type="FontFile" uid="uid://dnk1i8nwchfk5" path="res://UI/Fonts/SPECTRAL-REGULAR.TTF" id="4_utxqd"]
+[ext_resource type="Texture2D" uid="uid://bscuaq4wphq7f" path="res://UI/Button/Button_1.png" id="6_6r4e2"]
+[ext_resource type="Texture2D" uid="uid://omketxysbpg" path="res://UI/Button/Button_1_hover.png" id="7_h0ale"]
+[ext_resource type="Script" path="res://scripts/button_play.gd" id="7_ocx1s"]
+[ext_resource type="AudioStream" uid="uid://dk38cpjwqfkty" path="res://sfx/Buttons/play_game/617763__cogfirestudios__achievement-sylized-fx-3.wav" id="8_3onnu"]
+[ext_resource type="Texture2D" uid="uid://bv8ba4q2sqe8k" path="res://UI/Background/decoration_bg.png" id="10_q001r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvcou"]
+texture = ExtResource("7_h0ale")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0eal7"]
+texture = ExtResource("6_6r4e2")
+
+[node name="main" type="CanvasLayer"]
+script = ExtResource("1_xup0c")
+metadata/_edit_horizontal_guides_ = [328.0]
+
+[node name="Control" type="Control" parent="."]
+z_index = 1
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel"]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 497.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hjxys")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.222
+anchor_right = 0.5
+anchor_bottom = 0.222
+offset_left = -115.0
+offset_top = -70.92
+offset_right = 655.0
+offset_bottom = 409.08
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.296007, 0.296007)
+texture = ExtResource("3_s8orn")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51875
+anchor_top = 0.519444
+anchor_right = 3.3625
+anchor_bottom = 3.28333
+offset_left = -323.0
+offset_top = -180.0
+offset_right = -283.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.333213, 0.333213)
+texture = ExtResource("10_q001r")
+
+[node name="Version" type="Label" parent="Control/Panel"]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.469
+anchor_right = 0.504
+anchor_bottom = 0.469
+offset_left = -50.56
+offset_top = -9.84001
+offset_right = 197.44
+offset_bottom = 38.16
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.408196, 0.408196)
+theme_override_colors/font_color = Color(1, 0.901961, 0.388235, 1)
+theme_override_fonts/font = ExtResource("4_utxqd")
+theme_override_font_sizes/font_size = 30
+text = "Alpha Version"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 38.0
+offset_right = 65.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="button_play" type="Button" parent="Control/Panel/VBoxContainer"]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_6bae1")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_xvcou")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0eal7")
+action_mode = 0
+text = "Play"
+icon_alignment = 1
+script = ExtResource("7_ocx1s")
+
+[node name="button_tutorial" type="Button" parent="Control/Panel/VBoxContainer"]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_6bae1")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_xvcou")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0eal7")
+action_mode = 0
+text = "Tutorial"
+
+[node name="button_leaderboard" type="Button" parent="Control/Panel/VBoxContainer"]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_6bae1")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_xvcou")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0eal7")
+action_mode = 0
+text = "Leaderboard"
+
+[node name="button_quit" type="Button" parent="Control/Panel/VBoxContainer"]
+visible = false
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_6bae1")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_xvcou")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0eal7")
+action_mode = 0
+text = "Quit"
+
+[node name="button_test" type="Button" parent="Control/Panel/VBoxContainer"]
+visible = false
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_6bae1")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_xvcou")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0eal7")
+action_mode = 0
+text = "Test"
+
+[node name="sound_button" parent="Control/Panel" instance=ExtResource("4_3j224")]
+offset_left = 596.0
+offset_top = 314.0
+offset_right = 611.0
+offset_bottom = 328.0
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, 0)
+stream = ExtResource("8_3onnu")
+
+[connection signal="pressed" from="Control/Panel/VBoxContainer/button_play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/button_tutorial" to="." method="_on_button_tutorial_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/button_leaderboard" to="." method="_on_button_leaderboard_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/button_quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/button_test" to="." method="_on_button_test_pressed"]

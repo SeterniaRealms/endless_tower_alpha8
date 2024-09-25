@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd63u4lg6hq41"]
+
+[ext_resource type="Texture2D" uid="uid://cc0jj1yibavax" path="res://assets/Items/purple_potion/Icon15.png" id="1_15fyi"]
+[ext_resource type="Script" path="res://prefabs/tiles/purple_tile.gd" id="1_qisuw"]
+[ext_resource type="AudioStream" uid="uid://cbt3m8lbeio2g" path="res://sfx/pickup/411178__silverillusionist__pick-up-item-2.wav" id="2_4u8gr"]
+[ext_resource type="Resource" uid="uid://iec28oahpmed" path="res://scripts/Inventory/Items/purple_potion.tres" id="3_bo0lh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo0t3"]
+atlas = ExtResource("1_15fyi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_emy32"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo0t3")
+}],
+"loop": false,
+"name": &"purple_pot",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wijhi"]
+size = Vector2(10, 16)
+
+[node name="purple_pot" type="Area2D"]
+script = ExtResource("1_qisuw")
+sfx_collect = Array[AudioStream]([ExtResource("2_4u8gr")])
+itemRes = ExtResource("3_bo0lh")
+
+[node name="animated_sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_emy32")
+animation = &"purple_pot"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wijhi")
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="."]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkuboyis638r8"]
+
+[ext_resource type="Script" path="res://scripts/collectable.gd" id="1_jw0wf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61er2"]
+resource_local_to_scene = true
+
+[node name="collectable" type="Area2D"]
+script = ExtResource("1_jw0wf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_61er2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

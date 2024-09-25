@@ -1,0 +1,235 @@
+[gd_scene load_steps=22 format=3 uid="uid://bkp487kfv8qpr"]
+
+[ext_resource type="Script" path="res://addons/SolanaSDK/Scripts/ThirdPartyTools/Endless Tower SOAR/endlessgame_manager.gd" id="1_mqhgc"]
+[ext_resource type="Texture2D" uid="uid://et1kvxp5bprg" path="res://addons/SolanaSDK/Textures/Buttons/b_inactive.PNG" id="2_xy3ih"]
+[ext_resource type="Texture2D" uid="uid://5erj253phx4s" path="res://addons/SolanaSDK/Textures/Buttons/b_orange_hover.PNG" id="3_f5ad8"]
+[ext_resource type="Texture2D" uid="uid://dnqcw4msg2uow" path="res://addons/SolanaSDK/Textures/Buttons/b_orange_pressed.PNG" id="4_t3gfe"]
+[ext_resource type="Script" path="res://addons/SolanaSDK/Scripts/Utility/scene_change_button.gd" id="5_wx8r7"]
+[ext_resource type="Texture2D" uid="uid://d4kauar2qc15y" path="res://addons/SolanaSDK/Textures/Buttons/b_green_hover.PNG" id="6_1xaad"]
+[ext_resource type="Texture2D" uid="uid://cye2pbirpht4u" path="res://addons/SolanaSDK/Textures/Buttons/b_green_pressed.PNG" id="7_gdmxt"]
+[ext_resource type="PackedScene" uid="uid://kb5sk8ykb617" path="res://addons/SolanaSDK/Scripts/ThirdPartyTools/SOAR/SoarProgram.tscn" id="9_2apjj"]
+[ext_resource type="PackedScene" uid="uid://blmw46he11fxs" path="res://addons/SolanaSDK/Scripts/TransactionManager/TransactionOverlayUI.tscn" id="10_ja1ow"]
+[ext_resource type="Script" path="res://addons/SolanaSDK/Scripts/Utility/scene_loader.gd" id="11_281k2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pi32"]
+bg_color = Color(0.937255, 0.682353, 0.341176, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0xvq3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_avkrb"]
+texture = ExtResource("2_xy3ih")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ryjmu"]
+texture = ExtResource("3_f5ad8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2tob"]
+texture = ExtResource("4_t3gfe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bmrj2"]
+texture = ExtResource("4_t3gfe")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b04j3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8hje"]
+texture = ExtResource("2_xy3ih")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_efb31"]
+texture = ExtResource("6_1xaad")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bio0t"]
+texture = ExtResource("7_gdmxt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hadpj"]
+texture = ExtResource("7_gdmxt")
+
+[node name="EndlessHighscoreDemo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mqhgc")
+game_authority_path = "res://id3k.json"
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7pi32")
+
+[node name="StartingScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReturnButton" type="Button" parent="StartingScreen" node_paths=PackedStringArray("scene_loader")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -187.0
+offset_top = 276.0
+offset_right = -18.0
+offset_bottom = 353.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0xvq3")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_avkrb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ryjmu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f2tob")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bmrj2")
+text = "RETURN"
+script = ExtResource("5_wx8r7")
+path_to_scene = "res://addons/SolanaSDK/Demos/_DemoSelectScene/DemoSelectScene.tscn"
+scene_loader = NodePath("../../SceneLoader")
+
+[node name="Content" type="MarginContainer" parent="StartingScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -177.0
+offset_right = 246.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.711082, 0.711082)
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartingScreen/Content"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Intro" type="Label" parent="StartingScreen/Content/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Onchain Highscores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description" type="Label" parent="StartingScreen/Content/VBoxContainer"]
+custom_minimum_size = Vector2(800, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "This demo is a carcass for setting players highscores into onchain leaderboard. Start by initializing an account. Then a random number will be generated as your score. You will be able to submit it into the leaderboard. Caution: Devnet only!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="StartingScreen/Content/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b04j3")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_m8hje")
+theme_override_styles/hover = SubResource("StyleBoxTexture_efb31")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bio0t")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hadpj")
+text = "Start game"
+
+[node name="LeaderboardButton" type="Button" parent="StartingScreen/Content/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b04j3")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_m8hje")
+theme_override_styles/hover = SubResource("StyleBoxTexture_efb31")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bio0t")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hadpj")
+text = "Leaderboard"
+
+[node name="PlayScreen" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 134.0
+offset_right = 134.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.612594, 0.612594)
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Intro" type="Label" parent="PlayScreen"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 85
+text = "Well Played!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description" type="Label" parent="PlayScreen"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Your score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="PlayScreen"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.51782, 1, 0.722702, 1)
+theme_override_colors/font_shadow_color = Color(0.126012, 0.537816, 0.699722, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 35
+theme_override_constants/shadow_outline_size = 55
+theme_override_font_sizes/font_size = 118
+text = "420"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubmitButton" type="Button" parent="PlayScreen"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b04j3")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_m8hje")
+theme_override_styles/hover = SubResource("StyleBoxTexture_efb31")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bio0t")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hadpj")
+text = "Submit Score"
+
+[node name="LeaderboardScreen" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+layout_mode = 1
+script = null
+
+[node name="SoarProgram" parent="." instance=ExtResource("9_2apjj")]
+
+[node name="TransactionOverlayUI" parent="." instance=ExtResource("10_ja1ow")]
+
+[node name="SceneLoader" type="Node" parent="."]
+script = ExtResource("11_281k2")
+
+[connection signal="pressed" from="StartingScreen/ReturnButton" to="StartingScreen/ReturnButton" method="_on_pressed"]

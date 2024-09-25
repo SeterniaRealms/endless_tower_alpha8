@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyh1v36ha72j5"]
+
+[sub_resource type="Gradient" id="Gradient_w8m18"]
+offsets = PackedFloat32Array(0, 0.801887)
+colors = PackedColorArray(0.0862745, 0.0666667, 0.156863, 0, 0.0156863, 0.0156863, 0.0156863, 0.784314)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4yxe"]
+gradient = SubResource("Gradient_w8m18")
+width = 320
+height = 320
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="fog" type="CanvasLayer"]
+
+[node name="fog_effect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_g4yxe")

@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://ci5nsadpeny32"]
+
+[ext_resource type="Texture2D" uid="uid://bhqfrk0x2t2ur" path="res://assets/Tilemap/Map01.png" id="1_e3onv"]
+[ext_resource type="Script" path="res://scripts/tiles/floor_tile.gd" id="2_87efs"]
+[ext_resource type="Texture2D" uid="uid://d18wivb04mx0h" path="res://assets/Tilemap/map_tile_grass1.png" id="2_gwnws"]
+[ext_resource type="Texture2D" uid="uid://be6vhqpnn3nkn" path="res://assets/Tilemap/map_tile_grass3.png" id="4_gxcqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1w3p"]
+atlas = ExtResource("1_e3onv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1f8a"]
+atlas = ExtResource("1_e3onv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phmt7"]
+atlas = ExtResource("1_e3onv")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb8sj"]
+atlas = ExtResource("1_e3onv")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_003ut"]
+atlas = ExtResource("2_gwnws")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hp8g"]
+atlas = ExtResource("4_gxcqh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlpn7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1w3p")
+}],
+"loop": true,
+"name": &"01",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1f8a")
+}],
+"loop": true,
+"name": &"02",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phmt7")
+}],
+"loop": true,
+"name": &"03",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb8sj")
+}],
+"loop": true,
+"name": &"04",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_003ut")
+}],
+"loop": true,
+"name": &"05",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hp8g")
+}],
+"loop": true,
+"name": &"06",
+"speed": 5.0
+}]
+
+[node name="floor_tile" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qlpn7")
+animation = &"01"
+script = ExtResource("2_87efs")

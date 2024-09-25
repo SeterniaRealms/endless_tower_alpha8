@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0tdf1hyb54ha"]
+
+[ext_resource type="Script" path="res://scripts/hotbar.gd" id="2_6mino"]
+[ext_resource type="Texture2D" uid="uid://opggjwr8w1ve" path="res://UI/UI_inventory/Hotbar_items.png" id="2_8r6km"]
+[ext_resource type="PackedScene" uid="uid://e2m6mklfvof4" path="res://prefabs/hotbar_slot.tscn" id="2_cn5lr"]
+[ext_resource type="Texture2D" uid="uid://cgil8djuth26" path="res://UI/UI_inventory/Hotbar_selector_yellow.png" id="4_ln1uv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Hotbar" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 94.0
+offset_bottom = 32.0
+script = ExtResource("2_6mino")
+
+[node name="Container" type="NinePatchRect" parent="Hotbar"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 94.0
+offset_bottom = 32.0
+texture = ExtResource("2_8r6km")
+
+[node name="boxcontainer" type="HBoxContainer" parent="Hotbar/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -11.5
+offset_right = 35.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hotbarslot" parent="Hotbar/Container/boxcontainer" instance=ExtResource("2_cn5lr")]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+
+[node name="Hotbarslot2" parent="Hotbar/Container/boxcontainer" instance=ExtResource("2_cn5lr")]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+
+[node name="Hotbarslot3" parent="Hotbar/Container/boxcontainer" instance=ExtResource("2_cn5lr")]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+
+[node name="Selector" type="Sprite2D" parent="Hotbar"]
+position = Vector2(10, 5)
+texture = ExtResource("4_ln1uv")
+centered = false
+offset = Vector2(1, 1)

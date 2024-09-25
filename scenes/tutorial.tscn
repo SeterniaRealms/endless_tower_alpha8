@@ -1,0 +1,197 @@
+[gd_scene load_steps=12 format=3 uid="uid://l6l4kfacrv5l"]
+
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_117s8"]
+[ext_resource type="FontFile" uid="uid://dymai06rub5rj" path="res://UI/Fonts/SPECTRAL-BOLD.TTF" id="1_pu20p"]
+[ext_resource type="FontFile" uid="uid://dnk1i8nwchfk5" path="res://UI/Fonts/SPECTRAL-REGULAR.TTF" id="3_pc1ca"]
+[ext_resource type="Texture2D" uid="uid://bscuaq4wphq7f" path="res://UI/Button/Button_1.png" id="4_4x2n8"]
+[ext_resource type="Texture2D" uid="uid://omketxysbpg" path="res://UI/Button/Button_1_hover.png" id="5_y3ku4"]
+[ext_resource type="PackedScene" uid="uid://bovasqadpaxv3" path="res://scenes/sound_button.tscn" id="7_xesbp"]
+[ext_resource type="Texture2D" uid="uid://bv8ba4q2sqe8k" path="res://UI/Background/decoration_bg.png" id="9_i3mw1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkglx"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdemv"]
+bg_color = Color(0.0823529, 0.0823529, 0.0941176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.419608, 0.333333, 0.188235, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ojce5"]
+texture = ExtResource("5_y3ku4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q23nf"]
+texture = ExtResource("4_4x2n8")
+
+[node name="tutorial" type="CanvasLayer"]
+script = ExtResource("1_117s8")
+metadata/_edit_vertical_guides_ = [53.0]
+metadata/_edit_horizontal_guides_ = [333.0]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="color" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0862745, 0.0666667, 0.156863, 1)
+
+[node name="TextureRect3" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51875
+anchor_top = 0.519444
+anchor_right = 3.3625
+anchor_bottom = 3.28333
+offset_left = -323.0
+offset_top = -180.0
+offset_right = -283.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.333213, 0.333213)
+texture = ExtResource("9_i3mw1")
+
+[node name="tutorial_title" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.164
+anchor_right = 0.5
+anchor_bottom = 0.164
+offset_left = -123.5
+offset_top = -42.48
+offset_right = 123.5
+offset_bottom = 3.52
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_pu20p")
+theme_override_font_sizes/font_size = 30
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="controls_button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 72.0
+offset_right = 132.0
+offset_bottom = 112.0
+theme_override_colors/font_hover_color = Color(1, 0.901961, 0.388235, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.901961, 0.388235, 1)
+theme_override_fonts/font = ExtResource("1_pu20p")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkglx")
+action_mode = 0
+text = "Controls"
+
+[node name="gameplay_button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 72.0
+offset_right = 243.0
+offset_bottom = 112.0
+theme_override_colors/font_hover_pressed_color = Color(1, 0.901961, 0.388235, 1)
+theme_override_colors/font_hover_color = Color(1, 0.901961, 0.388235, 1)
+theme_override_fonts/font = ExtResource("1_pu20p")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkglx")
+action_mode = 0
+text = "Gameplay"
+
+[node name="controls_text_panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 119.0
+offset_right = 602.0
+offset_bottom = 282.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="controls_text" type="RichTextLabel" parent="Control/controls_text_panel"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 21.0
+offset_right = 411.0
+offset_bottom = 144.0
+theme_override_fonts/normal_font = ExtResource("3_pc1ca")
+theme_override_font_sizes/normal_font_size = 12
+text = "- Use W, A, S , D  to move the character.
+- Use “space bar” to attack enemies or obstacles.
+- Use \"I\" to open/close the inventory.
+- Select the item on hotbar using Left click mouse
+- Use \"Q\" to activate the item
+- Use \"X\" while holding item to remove the item from the inventory."
+text_direction = 1
+
+[node name="gameplay_text_panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 119.0
+offset_right = 602.0
+offset_bottom = 282.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdemv")
+
+[node name="gameplay_text" type="RichTextLabel" parent="Control/gameplay_text_panel"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 21.0
+offset_right = 541.0
+offset_bottom = 144.0
+theme_override_fonts/normal_font = ExtResource("3_pc1ca")
+theme_override_font_sizes/normal_font_size = 12
+text = "- Move the character and go to the stairs to advance to the next floor of the tower.
+- Don't forget about the items. These give you powerfull skills to survive.
+- Reach the highest floor of the tower to rank on the Top10 Leaderboard.
+- GameOver - When HP reaches 0
+
+"
+text_direction = 1
+
+[node name="button_menu" type="Button" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 123.0
+offset_right = 65.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-225, -223)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pu20p")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxTexture_ojce5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_q23nf")
+action_mode = 0
+text = "Menu"
+
+[node name="sound_button" parent="Control" instance=ExtResource("7_xesbp")]
+offset_left = 596.0
+offset_top = 319.0
+offset_right = 611.0
+offset_bottom = 333.0
+
+[connection signal="pressed" from="Control/controls_button" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="Control/gameplay_button" to="." method="_on_gameplay_button_pressed"]
+[connection signal="pressed" from="Control/button_menu" to="." method="_on_button_menu_pressed"]
